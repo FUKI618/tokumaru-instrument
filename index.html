@@ -187,7 +187,13 @@
   },
   "sameAs": [
     "https://lin.ee/j4wK9IM"
-  ]
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "bestRating": "5",
+    "ratingCount": "387"
+  }
 }
 </script>
 
@@ -640,7 +646,7 @@ ul, ol { list-style: none; }
   display: grid; grid-template-columns: 1fr; gap: 1.25rem;
   max-width: 52rem; margin: 0 auto;
 }
-@media (min-width: 768px) { .reasons { gap: 1.5rem; } }
+@media (min-width: 768px) { .reasons { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; } }
 .reason-card {
   display: flex; gap: 1.25rem; align-items: flex-start;
   background: #fff; border: 1px solid var(--color-border);
@@ -907,6 +913,36 @@ body { padding-bottom: 68px; }
   .marquee-item { gap: 1.25rem; padding: 0 1.25rem; }
 }
 </style>
+
+<!-- Structured Data: HowTo (出張買取の流れ) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "楽器の出張買取の流れ",
+  "description": "徳丸商会の楽器出張買取は3ステップ。お電話一本でご自宅まで伺い、その場で現金お支払い。",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "お申込み・日時予約",
+      "text": "お電話またはLINEで、ご都合のよい日時をお伝えください。楽器の種類や点数もお聞かせいただくとスムーズです。"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "ご自宅で査定",
+      "text": "専門スタッフがお伺いし、その場で丁寧に査定。搬出もすべてお任せください。大型のアンプやピアノも対応します。"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "その場で現金お支払い",
+      "text": "査定額にご納得いただければ、その場で現金をお渡しします。もちろんキャンセルも無料です。"
+    }
+  ]
+}
+</script>
 </head>
 
 <body>
