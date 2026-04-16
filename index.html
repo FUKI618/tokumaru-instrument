@@ -367,7 +367,8 @@ ul, ol { list-style: none; }
 @media (min-width: 1024px) { .hero-image-wrap { max-width: 540px; } }
 .hero-image-wrap img {
   width: 100%; height: auto; border-radius: 1.5rem;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.5), 0 0 80px rgba(212,90,42,0.1);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.4), 0 0 40px rgba(212,90,42,0.15);
+  border: 1px solid rgba(255,255,255,0.08);
 }
 .hero-badge-float {
   position: absolute; top: 1rem; right: -0.5rem;
@@ -413,159 +414,56 @@ ul, ol { list-style: none; }
 .hero-note { color: rgba(255,255,255,0.45); font-size: 0.7rem; margin-top: 0.75rem; text-align: center; }
 @media (min-width: 768px) { .hero-note { text-align: left; } }
 
-/* === Bremen Band Animation === */
-.bremen-strip {
+/* === Instrument Silhouette Marquee === */
+.instrument-marquee {
   overflow: hidden; position: relative;
-  height: 200px;
-  border-top: 1px solid rgba(212,90,42,0.2);
-  border-bottom: 1px solid rgba(212,90,42,0.2);
+  height: 80px;
+  background: linear-gradient(to bottom, var(--color-dark), var(--color-dark-dark));
+  border-top: 1px solid rgba(212,90,42,0.1);
+  border-bottom: 1px solid rgba(212,90,42,0.1);
 }
-@media (min-width: 768px) { .bremen-strip { height: 240px; } }
+@media (min-width: 768px) { .instrument-marquee { height: 100px; } }
 
-/* Scrolling background layers (parallax) */
-.bremen-bg-far, .bremen-bg-mid, .bremen-bg-ground {
-  position: absolute; left: 0; bottom: 0; width: 200%; height: 100%;
-  will-change: transform;
+.marquee-track {
+  display: flex; align-items: center; height: 100%;
+  animation: marquee-slide 30s linear infinite;
+  width: max-content;
 }
-.bremen-bg-far {
-  background: linear-gradient(to bottom, #0d0a08 0%, #1a1410 40%, #221c16 100%);
-}
-.bremen-bg-mid {
-  height: 60%; bottom: 30px;
-  background:
-    radial-gradient(ellipse 80px 50px at 8% 80%, #2a2318 0%, transparent 100%),
-    radial-gradient(ellipse 120px 60px at 25% 75%, #2e2518 0%, transparent 100%),
-    radial-gradient(ellipse 90px 45px at 45% 85%, #2a2318 0%, transparent 100%),
-    radial-gradient(ellipse 140px 55px at 65% 70%, #2e2518 0%, transparent 100%),
-    radial-gradient(ellipse 70px 40px at 82% 80%, #2a2318 0%, transparent 100%);
-  animation: scroll-bg-mid 12s linear infinite;
-  opacity: 0.7;
-}
-.bremen-bg-ground {
-  height: 35px; width: 300%;
-  background:
-    repeating-linear-gradient(90deg,
-      #3a2e22 0px, #3a2e22 60px,
-      #352a1e 60px, #352a1e 80px,
-      #3e3024 80px, #3e3024 150px,
-      #382c20 150px, #382c20 180px
-    );
-  border-top: 2px solid rgba(212,90,42,0.2);
-  animation: scroll-ground 4s linear infinite;
-}
-.bremen-bg-ground::before {
-  content: ''; position: absolute; top: 8px; left: 0; right: 0; height: 100%;
-  background: repeating-linear-gradient(90deg,
-    transparent 0px, transparent 30px,
-    rgba(212,90,42,0.06) 30px, rgba(212,90,42,0.06) 32px
-  );
-}
-@keyframes scroll-bg-mid {
+@keyframes marquee-slide {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-@keyframes scroll-ground {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-33.333%); }
+
+.marquee-item {
+  display: flex; align-items: center; gap: 2rem; padding: 0 2rem;
+  white-space: nowrap; flex-shrink: 0;
+}
+@media (min-width: 768px) { .marquee-item { gap: 2.5rem; padding: 0 2.5rem; } }
+
+.marquee-item span {
+  font-family: var(--font-mincho); font-weight: 900;
+  font-size: 1.1rem; color: rgba(255,255,255,0.25);
+  letter-spacing: 0.08em;
+}
+@media (min-width: 768px) { .marquee-item span { font-size: 1.4rem; } }
+
+.marquee-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: rgba(212,90,42,0.4); flex-shrink: 0;
 }
 
-/* Stars (fixed) */
-.bremen-stars { position: absolute; inset: 0; overflow: hidden; z-index: 1; }
-.bremen-star {
-  position: absolute; width: 3px; height: 3px; background: rgba(255,255,255,0.5);
-  border-radius: 50%; animation: star-twinkle 3s ease-in-out infinite;
+/* Subtle top glow line */
+.instrument-marquee::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(212,90,42,0.3) 50%, transparent 100%);
 }
-.bremen-star:nth-child(1) { top: 10%; left: 8%; animation-delay: 0s; }
-.bremen-star:nth-child(2) { top: 18%; left: 22%; animation-delay: 1.2s; width: 2px; height: 2px; }
-.bremen-star:nth-child(3) { top: 6%; left: 38%; animation-delay: 0.5s; }
-.bremen-star:nth-child(4) { top: 22%; left: 55%; animation-delay: 2s; width: 2px; height: 2px; }
-.bremen-star:nth-child(5) { top: 8%; left: 72%; animation-delay: 0.8s; }
-.bremen-star:nth-child(6) { top: 15%; left: 88%; animation-delay: 1.5s; width: 4px; height: 4px; }
-.bremen-star:nth-child(7) { top: 25%; left: 45%; animation-delay: 2.5s; width: 2px; height: 2px; }
-.bremen-star:nth-child(8) { top: 4%; left: 62%; animation-delay: 0.3s; }
-@keyframes star-twinkle {
-  0%, 100% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.5); }
-}
-
-/* Moon (fixed) */
-.bremen-moon {
-  position: absolute; top: 12px; right: 12%; width: 36px; height: 36px;
-  border-radius: 50%; z-index: 1;
-  background: radial-gradient(circle at 35% 35%, #fffbe6, #f5e6a0);
-  box-shadow: 0 0 20px rgba(255,250,200,0.3), 0 0 60px rgba(255,250,200,0.1);
-}
-@media (min-width: 768px) { .bremen-moon { width: 44px; height: 44px; } }
-
-/* Musical notes floating above characters */
-.bremen-notes { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 3; }
-.b-note {
-  position: absolute; opacity: 0;
-  animation: b-note-rise 4s ease-out infinite;
-}
-.b-note:nth-child(1) { left: 38%; bottom: 50%; animation-delay: 0s; color: #e09040; }
-.b-note:nth-child(2) { left: 48%; bottom: 55%; animation-delay: 1.5s; color: #d45a2a; }
-.b-note:nth-child(3) { left: 55%; bottom: 45%; animation-delay: 3s; color: #e09040; }
-.b-note:nth-child(4) { left: 60%; bottom: 60%; animation-delay: 0.8s; color: #d45a2a; }
-.b-note:nth-child(5) { left: 44%; bottom: 50%; animation-delay: 2.2s; color: #e09040; }
-@keyframes b-note-rise {
-  0% { opacity: 0; transform: translateY(20px) rotate(0deg) scale(0.5); }
-  15% { opacity: 0.7; }
-  80% { opacity: 0.15; }
-  100% { opacity: 0; transform: translateY(-70px) rotate(20deg) scale(1); }
-}
-
-/* Characters container - FIXED in center */
-.bremen-parade {
-  position: absolute; bottom: 35px; left: 50%; transform: translateX(-50%);
-  display: flex; align-items: flex-end; gap: 6px; z-index: 2;
-}
-@media (min-width: 768px) { .bremen-parade { gap: 12px; } }
-
-/* Individual character containers */
-.b-char { position: relative; flex-shrink: 0; transform: scale(0.7); transform-origin: bottom center; }
-@media (min-width: 768px) { .b-char { transform: scale(1); } }
-
-/* Walking bounce for each character */
-.b-char-inner {
-  animation: char-step 0.5s ease-in-out infinite alternate;
-}
-.b-char:nth-child(2) .b-char-inner { animation-delay: 0.125s; }
-.b-char:nth-child(3) .b-char-inner { animation-delay: 0.25s; }
-.b-char:nth-child(4) .b-char-inner { animation-delay: 0.375s; }
-@keyframes char-step {
-  0% { transform: translateY(0) rotate(-0.5deg); }
-  100% { transform: translateY(-4px) rotate(0.5deg); }
-}
-
-/* Shadow under characters */
-.b-shadow {
-  position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%);
-  width: 60%; height: 6px; background: rgba(0,0,0,0.5);
-  border-radius: 50%; filter: blur(3px);
-  animation: shadow-pulse 0.5s ease-in-out infinite alternate;
-}
-.b-char:nth-child(2) .b-shadow { animation-delay: 0.125s; }
-.b-char:nth-child(3) .b-shadow { animation-delay: 0.25s; }
-.b-char:nth-child(4) .b-shadow { animation-delay: 0.375s; }
-@keyframes shadow-pulse {
-  0% { opacity: 0.6; }
-  100% { opacity: 0.3; }
-}
-
-/* Spotlight glow under the group */
-.bremen-spotlight {
-  position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
-  width: 500px; height: 180px; z-index: 1;
-  background: radial-gradient(ellipse at center bottom, rgba(212,90,42,0.1) 0%, transparent 70%);
-  pointer-events: none;
+.instrument-marquee::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(212,90,42,0.15) 50%, transparent 100%);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .bremen-bg-mid, .bremen-bg-ground { animation: none; }
-  .b-char-inner { animation: none; }
-  .b-shadow { animation: none; }
-  .b-note, .bremen-star { animation: none; opacity: 0.5; }
+  .marquee-track { animation: none; }
 }
 
 /* === Price Cards === */
@@ -606,8 +504,8 @@ ul, ol { list-style: none; }
 @media (min-width: 768px) { .price-card-price { font-size: 1.25rem; } }
 
 /* === Section (Premium) === */
-.section { padding: 5rem 0; position: relative; }
-@media (min-width: 768px) { .section { padding: 7rem 0; } }
+.section { padding: 3.5rem 0; position: relative; }
+@media (min-width: 768px) { .section { padding: 4.5rem 0; } }
 .section-dark { background: var(--color-dark); color: #fff; }
 .section-cream { background: var(--color-bg-cream); }
 .section-gray { background: var(--color-bg-gray); }
@@ -621,8 +519,8 @@ ul, ol { list-style: none; }
 }
 .section-dark::before { background: linear-gradient(90deg, transparent, var(--color-amber), transparent); }
 
-.section-title { text-align: center; margin-bottom: 3rem; }
-@media (min-width: 768px) { .section-title { margin-bottom: 4rem; } }
+.section-title { text-align: center; margin-bottom: 2.5rem; }
+@media (min-width: 768px) { .section-title { margin-bottom: 3rem; } }
 .section-title .en {
   display: inline-block; font-size: 0.6rem; font-weight: 700;
   letter-spacing: 0.15em; text-transform: uppercase;
@@ -784,7 +682,11 @@ ul, ol { list-style: none; }
   background: rgba(255,255,255,0.08); border-color: rgba(212,90,42,0.3);
   transform: translateY(-6px);
 }
-.tip-icon { margin-bottom: 1rem; }
+.tip-icon {
+  margin-bottom: 1rem; width: 56px; height: 56px; margin-left: auto; margin-right: auto;
+  background: rgba(212,90,42,0.15); border-radius: 0.75rem;
+  display: flex; align-items: center; justify-content: center;
+}
 .tip-card h3 { font-weight: 900; font-size: 1.05rem; margin-bottom: 0.75rem; color: #fff; }
 .tip-card p { color: rgba(255,255,255,0.6); font-size: 0.85rem; line-height: 1.8; }
 
@@ -874,9 +776,9 @@ ul, ol { list-style: none; }
 /* === CTA Section (Premium) === */
 .cta-section {
   background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-dark) 100%);
-  padding: 5rem 0; text-align: center; position: relative; overflow: hidden;
+  padding: 4rem 0; text-align: center; position: relative; overflow: hidden;
 }
-@media (min-width: 768px) { .cta-section { padding: 7rem 0; } }
+@media (min-width: 768px) { .cta-section { padding: 5rem 0; } }
 .cta-section::before {
   content: ''; position: absolute; inset: 0;
   background: radial-gradient(ellipse at 30% 50%, rgba(212,90,42,0.08) 0%, transparent 60%),
@@ -1057,265 +959,44 @@ body { padding-bottom: 68px; }
   </div>
 </section>
 
-<!-- ===== Bremen Band Animation ===== -->
-<div class="bremen-strip" aria-hidden="true">
-  <!-- Background layers (scrolling) -->
-  <div class="bremen-bg-far"></div>
-  <div class="bremen-bg-mid"></div>
-
-  <!-- Stars (fixed) -->
-  <div class="bremen-stars">
-    <div class="bremen-star"></div><div class="bremen-star"></div><div class="bremen-star"></div>
-    <div class="bremen-star"></div><div class="bremen-star"></div><div class="bremen-star"></div>
-    <div class="bremen-star"></div><div class="bremen-star"></div>
+<!-- ===== Instrument Marquee ===== -->
+<div class="instrument-marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <div class="marquee-item">
+      <span>Gibson</span><div class="marquee-dot"></div>
+      <span>Fender</span><div class="marquee-dot"></div>
+      <span>YAMAHA</span><div class="marquee-dot"></div>
+      <span>Martin</span><div class="marquee-dot"></div>
+      <span>Roland</span><div class="marquee-dot"></div>
+      <span>Selmer</span><div class="marquee-dot"></div>
+      <span>PRS</span><div class="marquee-dot"></div>
+      <span>Ibanez</span><div class="marquee-dot"></div>
+      <span>Gretsch</span><div class="marquee-dot"></div>
+      <span>Taylor</span><div class="marquee-dot"></div>
+      <span>Bach</span><div class="marquee-dot"></div>
+      <span>KORG</span><div class="marquee-dot"></div>
+      <span>ESP</span><div class="marquee-dot"></div>
+      <span>Pearl</span><div class="marquee-dot"></div>
+      <span>TAMA</span><div class="marquee-dot"></div>
+    </div>
+    <div class="marquee-item">
+      <span>Gibson</span><div class="marquee-dot"></div>
+      <span>Fender</span><div class="marquee-dot"></div>
+      <span>YAMAHA</span><div class="marquee-dot"></div>
+      <span>Martin</span><div class="marquee-dot"></div>
+      <span>Roland</span><div class="marquee-dot"></div>
+      <span>Selmer</span><div class="marquee-dot"></div>
+      <span>PRS</span><div class="marquee-dot"></div>
+      <span>Ibanez</span><div class="marquee-dot"></div>
+      <span>Gretsch</span><div class="marquee-dot"></div>
+      <span>Taylor</span><div class="marquee-dot"></div>
+      <span>Bach</span><div class="marquee-dot"></div>
+      <span>KORG</span><div class="marquee-dot"></div>
+      <span>ESP</span><div class="marquee-dot"></div>
+      <span>Pearl</span><div class="marquee-dot"></div>
+      <span>TAMA</span><div class="marquee-dot"></div>
+    </div>
   </div>
-  <!-- Moon (fixed) -->
-  <div class="bremen-moon"></div>
-
-  <!-- Floating notes -->
-  <div class="bremen-notes">
-    <svg class="b-note" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg>
-    <svg class="b-note" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg>
-    <svg class="b-note" width="14" height="14" viewBox="0 0 24 24"><path fill="currentColor" d="M21 3v10.55A4 4 0 1 0 23 17V7h-2V3zm-10 0v10.55A4 4 0 1 0 13 17V7h4V3H11z"/></svg>
-    <svg class="b-note" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg>
-    <svg class="b-note" width="12" height="12" viewBox="0 0 24 24"><path fill="currentColor" d="M21 3v10.55A4 4 0 1 0 23 17V7h-2V3zm-10 0v10.55A4 4 0 1 0 13 17V7h4V3H11z"/></svg>
-  </div>
-
-  <!-- Ground (scrolling) -->
-  <div class="bremen-bg-ground"></div>
-  <!-- Spotlight (fixed under characters) -->
-  <div class="bremen-spotlight"></div>
-
-  <!-- Parade - FIXED position in center -->
-  <div class="bremen-parade">
-
-    <!-- 1: Donkey with keyboard on back (largest) -->
-    <div class="b-char" style="width:120px; height:110px;">
-      <div class="b-char-inner">
-        <svg viewBox="0 0 120 110" width="120" height="110" xmlns="http://www.w3.org/2000/svg">
-          <!-- Body -->
-          <ellipse cx="58" cy="68" rx="32" ry="22" fill="#8B7355"/>
-          <!-- Legs -->
-          <g class="donkey-legs">
-            <rect x="35" y="82" width="8" height="22" rx="3" fill="#7A6548" class="leg-left-back">
-              <animateTransform attributeName="transform" type="rotate" values="-10,39,82;10,39,82;-10,39,82" dur="0.5s" repeatCount="indefinite"/>
-            </rect>
-            <rect x="45" y="82" width="8" height="22" rx="3" fill="#6E5A3E" class="leg-right-back">
-              <animateTransform attributeName="transform" type="rotate" values="10,49,82;-10,49,82;10,49,82" dur="0.5s" repeatCount="indefinite"/>
-            </rect>
-            <rect x="68" y="82" width="8" height="22" rx="3" fill="#7A6548" class="leg-left-front">
-              <animateTransform attributeName="transform" type="rotate" values="10,72,82;-10,72,82;10,72,82" dur="0.5s" repeatCount="indefinite"/>
-            </rect>
-            <rect x="78" y="82" width="8" height="22" rx="3" fill="#6E5A3E" class="leg-right-front">
-              <animateTransform attributeName="transform" type="rotate" values="-10,82,82;10,82,82;-10,82,82" dur="0.5s" repeatCount="indefinite"/>
-            </rect>
-          </g>
-          <!-- Hooves -->
-          <ellipse cx="39" cy="104" rx="5" ry="3" fill="#4A3C2A"/>
-          <ellipse cx="49" cy="104" rx="5" ry="3" fill="#4A3C2A"/>
-          <ellipse cx="72" cy="104" rx="5" ry="3" fill="#4A3C2A"/>
-          <ellipse cx="82" cy="104" rx="5" ry="3" fill="#4A3C2A"/>
-          <!-- Head -->
-          <ellipse cx="95" cy="50" rx="14" ry="12" fill="#9B8565" transform="rotate(-10,95,50)"/>
-          <!-- Snout -->
-          <ellipse cx="105" cy="54" rx="8" ry="6" fill="#B8A580"/>
-          <!-- Eye -->
-          <circle cx="96" cy="46" r="3" fill="#2c2420"/><circle cx="97" cy="45" r="1" fill="#fff"/>
-          <!-- Ears -->
-          <ellipse cx="86" cy="32" rx="5" ry="14" fill="#9B8565" transform="rotate(-15,86,32)"/>
-          <ellipse cx="96" cy="30" rx="5" ry="14" fill="#9B8565" transform="rotate(5,96,30)"/>
-          <ellipse cx="86" cy="32" rx="3" ry="10" fill="#C4A882" transform="rotate(-15,86,32)"/>
-          <ellipse cx="96" cy="30" rx="3" ry="10" fill="#C4A882" transform="rotate(5,96,30)"/>
-          <!-- Mane -->
-          <path d="M80 42 Q75 35 78 28 Q82 22 88 25" stroke="#6E5A3E" stroke-width="4" fill="none" stroke-linecap="round"/>
-          <!-- Keyboard on back -->
-          <rect x="38" y="46" width="40" height="14" rx="2" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
-          <g fill="#fff">
-            <rect x="40" y="48" width="4" height="10" rx="0.5"/>
-            <rect x="45" y="48" width="4" height="10" rx="0.5"/>
-            <rect x="50" y="48" width="4" height="10" rx="0.5"/>
-            <rect x="55" y="48" width="4" height="10" rx="0.5"/>
-            <rect x="60" y="48" width="4" height="10" rx="0.5"/>
-            <rect x="65" y="48" width="4" height="10" rx="0.5"/>
-            <rect x="70" y="48" width="4" height="10" rx="0.5"/>
-          </g>
-          <g fill="#1a1a1a">
-            <rect x="43" y="48" width="3" height="6" rx="0.5"/>
-            <rect x="48" y="48" width="3" height="6" rx="0.5"/>
-            <rect x="58" y="48" width="3" height="6" rx="0.5"/>
-            <rect x="63" y="48" width="3" height="6" rx="0.5"/>
-            <rect x="68" y="48" width="3" height="6" rx="0.5"/>
-          </g>
-          <!-- Tail -->
-          <path d="M26 62 Q18 55 20 48" stroke="#6E5A3E" stroke-width="3" fill="none" stroke-linecap="round">
-            <animateTransform attributeName="transform" type="rotate" values="-5,26,62;5,26,62;-5,26,62" dur="1s" repeatCount="indefinite"/>
-          </path>
-        </svg>
-      </div>
-      <div class="b-shadow"></div>
-    </div>
-
-    <!-- 2: Dog with guitar -->
-    <div class="b-char" style="width:80px; height:95px;">
-      <div class="b-char-inner">
-        <svg viewBox="0 0 80 95" width="80" height="95" xmlns="http://www.w3.org/2000/svg">
-          <!-- Body -->
-          <ellipse cx="40" cy="55" rx="18" ry="20" fill="#D4A574"/>
-          <!-- Legs -->
-          <rect x="26" y="68" width="7" height="20" rx="3" fill="#C4956A">
-            <animateTransform attributeName="transform" type="rotate" values="-12,29,68;12,29,68;-12,29,68" dur="0.5s" repeatCount="indefinite"/>
-          </rect>
-          <rect x="47" y="68" width="7" height="20" rx="3" fill="#B8895E">
-            <animateTransform attributeName="transform" type="rotate" values="12,50,68;-12,50,68;12,50,68" dur="0.5s" repeatCount="indefinite"/>
-          </rect>
-          <!-- Paws -->
-          <ellipse cx="29" cy="89" rx="5" ry="3" fill="#A07850"/>
-          <ellipse cx="50" cy="89" rx="5" ry="3" fill="#A07850"/>
-          <!-- Head -->
-          <circle cx="42" cy="30" r="15" fill="#D4A574"/>
-          <!-- Ears -->
-          <ellipse cx="30" cy="20" rx="7" ry="12" fill="#C4956A" transform="rotate(-20,30,20)"/>
-          <ellipse cx="54" cy="20" rx="7" ry="12" fill="#C4956A" transform="rotate(20,54,20)"/>
-          <!-- Face -->
-          <circle cx="37" cy="27" r="2.5" fill="#2c2420"/><circle cx="38" cy="26" r="0.8" fill="#fff"/>
-          <circle cx="47" cy="27" r="2.5" fill="#2c2420"/><circle cx="48" cy="26" r="0.8" fill="#fff"/>
-          <ellipse cx="42" cy="33" rx="4" ry="3" fill="#B8895E"/>
-          <circle cx="42" cy="31" r="2" fill="#2c2420"/>
-          <!-- Tongue -->
-          <ellipse cx="42" cy="37" rx="3" ry="4" fill="#E88080">
-            <animate attributeName="ry" values="4;5;4" dur="1s" repeatCount="indefinite"/>
-          </ellipse>
-          <!-- Guitar -->
-          <g transform="translate(52,38) rotate(25)">
-            <rect x="-2" y="-30" width="4" height="35" rx="1" fill="#8B5E3C"/>
-            <ellipse cx="0" cy="8" rx="12" ry="9" fill="#D4883C"/>
-            <ellipse cx="0" cy="4" rx="10" ry="7" fill="#C47830"/>
-            <circle cx="0" cy="5" r="3" fill="#2c2420"/>
-            <!-- Strings -->
-            <line x1="-1" y1="-28" x2="-1" y2="12" stroke="#ddd" stroke-width="0.3"/>
-            <line x1="0" y1="-28" x2="0" y2="12" stroke="#ddd" stroke-width="0.3"/>
-            <line x1="1" y1="-28" x2="1" y2="12" stroke="#ddd" stroke-width="0.3"/>
-            <!-- Headstock -->
-            <rect x="-3" y="-35" width="6" height="6" rx="1" fill="#5C3D1E"/>
-          </g>
-          <!-- Tail -->
-          <path d="M22 58 Q14 52 16 44" stroke="#C4956A" stroke-width="4" fill="none" stroke-linecap="round">
-            <animateTransform attributeName="transform" type="rotate" values="-8,22,58;8,22,58;-8,22,58" dur="0.8s" repeatCount="indefinite"/>
-          </path>
-        </svg>
-      </div>
-      <div class="b-shadow"></div>
-    </div>
-
-    <!-- 3: Cat with saxophone -->
-    <div class="b-char" style="width:65px; height:80px;">
-      <div class="b-char-inner">
-        <svg viewBox="0 0 65 80" width="65" height="80" xmlns="http://www.w3.org/2000/svg">
-          <!-- Body -->
-          <ellipse cx="32" cy="48" rx="14" ry="16" fill="#F5A623"/>
-          <!-- Stripes -->
-          <path d="M22 42 Q32 38 42 42" stroke="#D4880A" stroke-width="2" fill="none"/>
-          <path d="M20 48 Q32 44 44 48" stroke="#D4880A" stroke-width="2" fill="none"/>
-          <path d="M22 54 Q32 50 42 54" stroke="#D4880A" stroke-width="2" fill="none"/>
-          <!-- Legs -->
-          <rect x="22" y="58" width="6" height="16" rx="3" fill="#E8961E">
-            <animateTransform attributeName="transform" type="rotate" values="-12,25,58;12,25,58;-12,25,58" dur="0.5s" repeatCount="indefinite"/>
-          </rect>
-          <rect x="37" y="58" width="6" height="16" rx="3" fill="#D88A12">
-            <animateTransform attributeName="transform" type="rotate" values="12,40,58;-12,40,58;12,40,58" dur="0.5s" repeatCount="indefinite"/>
-          </rect>
-          <!-- Paws -->
-          <ellipse cx="25" cy="75" rx="4" ry="2.5" fill="#C87800"/>
-          <ellipse cx="40" cy="75" rx="4" ry="2.5" fill="#C87800"/>
-          <!-- Head -->
-          <circle cx="33" cy="26" r="13" fill="#F5A623"/>
-          <!-- Ears (pointy) -->
-          <polygon points="22,18 18,4 28,14" fill="#F5A623"/>
-          <polygon points="44,18 48,4 38,14" fill="#F5A623"/>
-          <polygon points="23,16 20,7 27,14" fill="#FFD4A0"/>
-          <polygon points="43,16 46,7 39,14" fill="#FFD4A0"/>
-          <!-- Face -->
-          <circle cx="28" cy="24" r="2" fill="#2c2420"/><circle cx="29" cy="23" r="0.7" fill="#fff"/>
-          <circle cx="38" cy="24" r="2" fill="#2c2420"/><circle cx="39" cy="23" r="0.7" fill="#fff"/>
-          <!-- Nose & whiskers -->
-          <polygon points="33,28 31,30 35,30" fill="#FF8888"/>
-          <line x1="20" y1="27" x2="29" y2="28" stroke="#D4880A" stroke-width="0.5"/>
-          <line x1="20" y1="30" x2="29" y2="30" stroke="#D4880A" stroke-width="0.5"/>
-          <line x1="37" y1="28" x2="46" y2="27" stroke="#D4880A" stroke-width="0.5"/>
-          <line x1="37" y1="30" x2="46" y2="30" stroke="#D4880A" stroke-width="0.5"/>
-          <!-- Mouth -->
-          <path d="M30 31 Q33 34 36 31" stroke="#D4880A" stroke-width="0.8" fill="none"/>
-          <!-- Saxophone -->
-          <g transform="translate(44,30) rotate(-10)">
-            <path d="M0 0 Q4 15 -2 28 Q-6 38 -12 40" stroke="#DAA520" stroke-width="5" fill="none" stroke-linecap="round"/>
-            <circle cx="-12" cy="40" r="5" fill="#DAA520"/>
-            <circle cx="-12" cy="40" r="3" fill="#B8860B"/>
-            <circle cx="0" cy="-2" r="3" fill="#DAA520"/>
-            <!-- Keys -->
-            <circle cx="2" cy="8" r="1.5" fill="#B8860B"/>
-            <circle cx="1" cy="14" r="1.5" fill="#B8860B"/>
-            <circle cx="-1" cy="20" r="1.5" fill="#B8860B"/>
-          </g>
-          <!-- Tail -->
-          <path d="M18 52 Q8 48 6 38 Q4 30 10 28" stroke="#E8961E" stroke-width="3" fill="none" stroke-linecap="round">
-            <animateTransform attributeName="transform" type="rotate" values="-5,18,52;5,18,52;-5,18,52" dur="1.2s" repeatCount="indefinite"/>
-          </path>
-        </svg>
-      </div>
-      <div class="b-shadow"></div>
-    </div>
-
-    <!-- 4: Rooster with trumpet (smallest, on the right) -->
-    <div class="b-char" style="width:55px; height:70px;">
-      <div class="b-char-inner">
-        <svg viewBox="0 0 55 70" width="55" height="70" xmlns="http://www.w3.org/2000/svg">
-          <!-- Body -->
-          <ellipse cx="28" cy="42" rx="13" ry="14" fill="#E8E8E8"/>
-          <!-- Wing -->
-          <ellipse cx="20" cy="40" rx="10" ry="8" fill="#D0D0D0" transform="rotate(-10,20,40)"/>
-          <path d="M12 36 Q8 42 14 46" stroke="#B8B8B8" stroke-width="1" fill="none"/>
-          <!-- Legs -->
-          <line x1="24" y1="54" x2="22" y2="64" stroke="#E8A020" stroke-width="2.5" stroke-linecap="round">
-            <animateTransform attributeName="transform" type="rotate" values="-15,24,54;15,24,54;-15,24,54" dur="0.5s" repeatCount="indefinite"/>
-          </line>
-          <line x1="32" y1="54" x2="34" y2="64" stroke="#E8A020" stroke-width="2.5" stroke-linecap="round">
-            <animateTransform attributeName="transform" type="rotate" values="15,32,54;-15,32,54;15,32,54" dur="0.5s" repeatCount="indefinite"/>
-          </line>
-          <!-- Feet -->
-          <path d="M18 64 L22 64 L24 66 L22 64 L20 66" stroke="#E8A020" stroke-width="1.5" fill="none"/>
-          <path d="M30 64 L34 64 L36 66 L34 64 L32 66" stroke="#E8A020" stroke-width="1.5" fill="none"/>
-          <!-- Tail feathers -->
-          <g>
-            <path d="M14 38 Q4 32 6 22 Q8 16 12 18" stroke="#1a8a1a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-            <path d="M16 36 Q8 28 10 20 Q14 12 18 16" stroke="#2a6aaa" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-            <path d="M15 40 Q6 36 4 26 Q2 18 8 16" stroke="#cc3333" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          </g>
-          <!-- Head -->
-          <circle cx="36" cy="22" r="9" fill="#E8E8E8"/>
-          <!-- Comb -->
-          <path d="M32 13 Q34 8 36 13 Q38 8 40 13 Q42 8 44 14" fill="#FF3030"/>
-          <!-- Eye -->
-          <circle cx="39" cy="20" r="2" fill="#2c2420"/><circle cx="40" cy="19" r="0.7" fill="#fff"/>
-          <!-- Beak -->
-          <polygon points="45,22 52,24 45,26" fill="#E8A020"/>
-          <!-- Wattle -->
-          <ellipse cx="42" cy="28" rx="3" ry="4" fill="#FF3030"/>
-          <!-- Trumpet -->
-          <g transform="translate(48,20) rotate(5)">
-            <rect x="0" y="-2" width="22" height="4" rx="1.5" fill="#DAA520"/>
-            <ellipse cx="22" cy="0" rx="6" ry="5" fill="#DAA520"/>
-            <ellipse cx="22" cy="0" rx="4" ry="3.5" fill="#B8860B"/>
-            <!-- Valves -->
-            <rect x="6" y="-5" width="2" height="3" rx="0.5" fill="#B8860B"/>
-            <rect x="10" y="-5" width="2" height="3" rx="0.5" fill="#B8860B"/>
-            <rect x="14" y="-5" width="2" height="3" rx="0.5" fill="#B8860B"/>
-          </g>
-        </svg>
-      </div>
-      <div class="b-shadow"></div>
-    </div>
-
-  </div><!-- /parade -->
 </div>
 
 <!-- ===== 3 Strengths ===== -->
@@ -1328,21 +1009,21 @@ body { padding-bottom: 68px; }
     <div class="strengths">
       <div class="strength-card reveal">
         <div class="strength-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z"/></svg>
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z"/><path d="M3 20h18"/></svg>
         </div>
         <h3>楽器専門の高価買取</h3>
         <p>楽器の価値を正確に見極める専門スタッフが在籍。メーカー・型番・年式・コンディションを総合的に査定し、適正な高値をご提示します。</p>
       </div>
       <div class="strength-card reveal">
         <div class="strength-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 8l-8 8M8 8l8 8"/></svg>
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="currentColor" stroke="none" font-size="12" font-weight="900">0</text></svg>
         </div>
         <h3>手数料すべて0円</h3>
         <p>出張費・査定料・キャンセル料、すべて無料。大型の楽器やアンプも搬出は当社スタッフにお任せ。お客様のご負担は一切ありません。</p>
       </div>
       <div class="strength-card reveal">
         <div class="strength-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M12 12h.01M17 12h.01M7 12h.01"/></svg>
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
         </div>
         <h3>最短即日・現金払い</h3>
         <p>お電話いただいた当日に訪問可能。査定にご納得いただければ、その場で現金をお渡しします。高額買取でも即日対応いたします。</p>
