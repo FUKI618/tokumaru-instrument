@@ -292,12 +292,30 @@ ul, ol { list-style: none; }
   padding: 100px 0 2rem;
 }
 @media (min-width: 768px) { .hero { padding: 140px 0 0; } }
+
+/* Background glow effects */
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 600px 400px at 70% 40%, rgba(212,90,42,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 400px 300px at 20% 80%, rgba(224,144,64,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 300px 300px at 80% 90%, rgba(212,90,42,0.05) 0%, transparent 70%);
+  z-index: 1;
+}
+/* Dot pattern overlay */
+.hero::after {
+  content: ''; position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+  z-index: 1;
+}
+
 .hero-split {
   position: relative; z-index: 10;
   display: flex; flex-direction: column; gap: 2rem;
 }
 @media (min-width: 768px) {
-  .hero-split { flex-direction: row; align-items: center; gap: 2rem; min-height: 75vh; }
+  .hero-split { flex-direction: row; align-items: center; gap: 2.5rem; min-height: 78vh; }
 }
 .hero-left { flex: 1 1 55%; }
 .hero-right { flex: 1 1 45%; display: flex; justify-content: center; }
@@ -317,15 +335,16 @@ ul, ol { list-style: none; }
 }
 .hero h1 {
   font-family: var(--font-mincho); font-weight: 900;
-  color: #fff; font-size: 2.2rem; line-height: 1.15;
-  letter-spacing: -0.025em; margin-bottom: 1rem;
+  color: #fff; font-size: 2.2rem; line-height: 1.1;
+  letter-spacing: -0.03em; margin-bottom: 1rem;
 }
-@media (min-width: 768px) { .hero h1 { font-size: 3.2rem; margin-bottom: 1.25rem; } }
-@media (min-width: 1024px) { .hero h1 { font-size: 4rem; } }
+@media (min-width: 768px) { .hero h1 { font-size: 3.5rem; margin-bottom: 1.25rem; } }
+@media (min-width: 1024px) { .hero h1 { font-size: 4.5rem; } }
 .hero h1 .accent {
-  background: linear-gradient(135deg, var(--color-terra-light), var(--color-amber));
+  background: linear-gradient(135deg, #ff7a3d, var(--color-amber));
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 12px rgba(212,90,42,0.3));
 }
 .hero-sub {
   color: rgba(255,255,255,0.7); font-size: 0.875rem;
@@ -367,14 +386,13 @@ ul, ol { list-style: none; }
 .hero-image-wrap {
   position: relative; max-width: 420px; width: 100%;
 }
-@media (min-width: 768px) { .hero-image-wrap { max-width: 480px; } }
-@media (min-width: 1024px) { .hero-image-wrap { max-width: 540px; } }
+@media (min-width: 768px) { .hero-image-wrap { max-width: 520px; } }
+@media (min-width: 1024px) { .hero-image-wrap { max-width: 600px; } }
 .hero-image-wrap img {
   width: 100%; height: auto;
-  /* No border-radius, no border — seamless blend with dark bg */
-  mask-image: radial-gradient(ellipse 90% 85% at 50% 45%, black 50%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 90% 85% at 50% 45%, black 50%, transparent 100%);
-  filter: brightness(1.1) contrast(1.05);
+  mask-image: radial-gradient(ellipse 85% 80% at 50% 48%, black 35%, transparent 90%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 80% at 50% 48%, black 35%, transparent 90%);
+  filter: brightness(1.15) contrast(1.08) saturate(1.1);
 }
 .hero-badge-float {
   position: absolute; top: 2rem; right: 1rem;
@@ -764,12 +782,13 @@ ul, ol { list-style: none; }
   box-shadow: 0 2px 8px rgba(212,90,42,0.2);
 }
 .faq-answer {
-  max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.22,1,0.36,1), padding 0.4s;
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.22,1,0.36,1), padding-bottom 0.4s, opacity 0.3s;
   padding: 0 1.5rem 0 4.5rem;
   color: var(--color-text-light); font-size: 0.875rem; line-height: 1.8;
-  display: block;
+  display: block; opacity: 0;
 }
-.faq-item.open .faq-answer { max-height: 200px; padding-bottom: 1.5rem; }
+.faq-item.open .faq-answer { max-height: 300px; padding-bottom: 1.5rem; opacity: 1; }
 .faq-toggle {
   margin-left: auto; flex-shrink: 0;
   width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
@@ -907,7 +926,8 @@ body { padding-bottom: 68px; }
   .flow-step { padding: 1.25rem 1rem; }
   .flow-step-num { width: 44px; height: 44px; font-size: 1.1rem; }
   .faq-question { padding: 1rem; font-size: 0.85rem; }
-  .faq-answer { padding: 0 1rem 1rem 3.5rem; }
+  .faq-answer { padding: 0 1rem 0 3.5rem; }
+  .faq-item.open .faq-answer { padding-bottom: 1rem; }
   .faq-question .q { width: 26px; height: 26px; font-size: 0.65rem; }
   .cta-section { padding: 3rem 0; }
   .cta-section h2 { font-size: 1.4rem; }
