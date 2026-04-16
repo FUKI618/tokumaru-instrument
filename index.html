@@ -27,7 +27,7 @@
 <meta name="twitter:title" content="名古屋の楽器買取なら徳丸商会｜出張費無料">
 <meta name="twitter:description" content="名古屋市・近郊エリアの楽器買取は徳丸商会へ。ギター・ベース・管楽器・ピアノ・電子楽器をその場で現金買取。">
 
-<link rel="preload" as="image" href="images/hero-instruments-right.webp" type="image/webp">
+<link rel="preload" as="image" href="images/hero-bg.webp" type="image/webp">
 <!-- Favicon -->
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
@@ -285,139 +285,102 @@ ul, ol { list-style: none; }
 .btn-icon { width: 14px; height: 14px; flex-shrink: 0; }
 @media (min-width: 768px) { .btn-icon { width: 20px; height: 20px; } }
 
-/* === Hero === */
+/* === Hero (Full-width Background) === */
 .hero {
   position: relative; overflow: hidden;
-  background: var(--color-dark);
-  padding: 100px 0 2rem;
+  background: #0a0806; min-height: 100svh;
+  display: flex; align-items: flex-end;
 }
-@media (min-width: 768px) { .hero { padding: 140px 0 0; } }
+@media (min-width: 768px) { .hero { align-items: center; min-height: 92vh; } }
 
-/* Background glow effects */
-.hero::before {
-  content: ''; position: absolute; inset: 0;
+/* Background image */
+.hero-bg-img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center 40%;
+}
+@media (max-width: 767px) { .hero-bg-img { object-position: 60% 30%; } }
+
+/* Gradient overlay: dark on left/bottom for text readability */
+.hero-overlay {
+  position: absolute; inset: 0; z-index: 2;
   background:
-    radial-gradient(ellipse 600px 400px at 70% 40%, rgba(212,90,42,0.12) 0%, transparent 70%),
-    radial-gradient(ellipse 400px 300px at 20% 80%, rgba(224,144,64,0.06) 0%, transparent 70%),
-    radial-gradient(ellipse 300px 300px at 80% 90%, rgba(212,90,42,0.05) 0%, transparent 70%);
-  z-index: 1;
+    linear-gradient(90deg, rgba(10,8,6,0.92) 0%, rgba(10,8,6,0.7) 40%, rgba(10,8,6,0.2) 70%, transparent 100%),
+    linear-gradient(to top, rgba(10,8,6,0.95) 0%, rgba(10,8,6,0.3) 40%, transparent 70%);
 }
-/* Dot pattern overlay */
-.hero::after {
-  content: ''; position: absolute; inset: 0;
-  background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
-  background-size: 24px 24px;
-  z-index: 1;
+@media (max-width: 767px) {
+  .hero-overlay {
+    background:
+      linear-gradient(to top, rgba(10,8,6,0.95) 0%, rgba(10,8,6,0.75) 50%, rgba(10,8,6,0.3) 80%, rgba(10,8,6,0.15) 100%);
+  }
 }
 
-.hero-split {
+/* Content */
+.hero-content {
   position: relative; z-index: 10;
-  display: flex; flex-direction: column; gap: 2rem;
+  padding-top: 100px; padding-bottom: 2.5rem;
+  max-width: 600px;
 }
 @media (min-width: 768px) {
-  .hero-split { flex-direction: row; align-items: center; gap: 2.5rem; min-height: 78vh; }
+  .hero-content { padding-top: 140px; padding-bottom: 4rem; max-width: 620px; }
 }
-.hero-left { flex: 1 1 55%; }
-.hero-right { flex: 1 1 45%; display: flex; justify-content: center; }
-@media (min-width: 768px) { .hero-right { justify-content: flex-end; } }
 
 .hero-badge {
   display: inline-flex; align-items: center; gap: 0.5rem;
-  background: rgba(212,90,42,0.2); border: 1px solid rgba(212,90,42,0.4);
-  color: var(--color-amber); font-weight: 700; font-size: 0.75rem;
-  padding: 0.375rem 1rem; border-radius: 9999px; margin-bottom: 1.25rem;
+  background: rgba(212,90,42,0.25); border: 1px solid rgba(212,90,42,0.5);
+  color: var(--color-amber); font-weight: 700; font-size: 0.7rem;
+  padding: 0.375rem 1rem; border-radius: 9999px; margin-bottom: 1rem;
   letter-spacing: 0.05em;
+  backdrop-filter: blur(4px);
 }
-@media (min-width: 768px) { .hero-badge { font-size: 0.875rem; padding: 0.5rem 1.5rem; } }
+@media (min-width: 768px) { .hero-badge { font-size: 0.85rem; padding: 0.5rem 1.5rem; margin-bottom: 1.25rem; } }
 .hero-badge-dot {
   width: 8px; height: 8px; border-radius: 50%; background: var(--color-terra);
   animation: glow-pulse 2s ease-in-out infinite;
 }
 .hero h1 {
   font-family: var(--font-mincho); font-weight: 900;
-  color: #fff; font-size: 2.2rem; line-height: 1.1;
-  letter-spacing: -0.03em; margin-bottom: 1rem;
+  color: #fff; font-size: 2.4rem; line-height: 1.1;
+  letter-spacing: -0.03em; margin-bottom: 0.75rem;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
 }
-@media (min-width: 768px) { .hero h1 { font-size: 3.5rem; margin-bottom: 1.25rem; } }
-@media (min-width: 1024px) { .hero h1 { font-size: 4.5rem; } }
+@media (min-width: 768px) { .hero h1 { font-size: 4rem; margin-bottom: 1rem; } }
+@media (min-width: 1024px) { .hero h1 { font-size: 5rem; } }
 .hero h1 .accent {
-  background: linear-gradient(135deg, #ff7a3d, var(--color-amber));
+  background: linear-gradient(135deg, #ff8040, #ffc040);
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 2px 12px rgba(212,90,42,0.3));
+  filter: drop-shadow(0 2px 16px rgba(255,128,64,0.4));
 }
 .hero-sub {
-  color: rgba(255,255,255,0.7); font-size: 0.875rem;
-  margin-bottom: 1.5rem; line-height: 1.8;
+  color: rgba(255,255,255,0.75); font-size: 0.85rem;
+  margin-bottom: 1.25rem; line-height: 1.8;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.4);
 }
-@media (min-width: 768px) { .hero-sub { font-size: 1.05rem; } }
+@media (min-width: 768px) { .hero-sub { font-size: 1.1rem; margin-bottom: 1.5rem; } }
 
-/* Hero inline strengths */
-.hero-strengths {
-  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 1rem; padding: 1rem 1.25rem; margin-bottom: 1.75rem;
+/* Pill badges */
+.hero-badges-row {
+  display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;
 }
-.hero-strengths-title {
-  color: var(--color-amber); font-size: 0.8rem; font-weight: 700;
-  margin-bottom: 0.75rem; text-align: center;
+.hero-pill {
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.9); font-size: 0.75rem; font-weight: 500;
+  padding: 0.375rem 0.875rem; border-radius: 9999px;
+  backdrop-filter: blur(4px);
 }
-@media (min-width: 768px) { .hero-strengths-title { text-align: left; font-size: 0.875rem; } }
-.hero-strengths-cards { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
-@media (min-width: 768px) { .hero-strengths-cards { justify-content: flex-start; } }
-.hero-strength-item {
-  display: flex; align-items: center; gap: 0.5rem;
-  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 0.5rem; padding: 0.5rem 0.75rem;
-  flex: 1 1 auto; min-width: 140px; justify-content: center;
+@media (min-width: 768px) { .hero-pill { font-size: 0.85rem; padding: 0.5rem 1rem; } }
+.hero-pill strong { color: #fff; font-weight: 900; }
+.hero-pill-accent {
+  background: rgba(212,90,42,0.3); border: 1px solid rgba(212,90,42,0.5);
+  color: var(--color-amber); font-size: 0.75rem; font-weight: 700;
+  padding: 0.375rem 0.875rem; border-radius: 9999px;
+  backdrop-filter: blur(4px);
 }
-@media (min-width: 768px) { .hero-strength-item { justify-content: flex-start; flex: 0 1 auto; } }
-.hero-strength-icon {
-  width: 28px; height: 28px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--color-terra), var(--color-amber));
-  display: flex; align-items: center; justify-content: center;
-  color: #fff; flex-shrink: 0;
-}
-.hero-strength-label {
-  color: rgba(255,255,255,0.8); font-size: 0.75rem; font-weight: 500; white-space: nowrap;
-}
-.hero-strength-label strong { color: #fff; font-weight: 900; }
+@media (min-width: 768px) { .hero-pill-accent { font-size: 0.85rem; padding: 0.5rem 1rem; } }
+.hero-pill-accent strong { color: #fff; }
 
-/* Hero image */
-.hero-image-wrap {
-  position: relative; max-width: 420px; width: 100%;
-}
-@media (min-width: 768px) { .hero-image-wrap { max-width: 520px; } }
-@media (min-width: 1024px) { .hero-image-wrap { max-width: 600px; } }
-.hero-image-wrap img {
-  width: 100%; height: auto;
-  mask-image: radial-gradient(ellipse 85% 80% at 50% 48%, black 35%, transparent 90%);
-  -webkit-mask-image: radial-gradient(ellipse 85% 80% at 50% 48%, black 35%, transparent 90%);
-  filter: brightness(1.15) contrast(1.08) saturate(1.1);
-}
-.hero-badge-float {
-  position: absolute; top: 2rem; right: 1rem;
-  background: linear-gradient(135deg, var(--color-terra), #c04020);
-  color: #fff; border-radius: 1rem; padding: 0.75rem 1rem;
-  text-align: center; line-height: 1.3; font-size: 0.7rem; font-weight: 700;
-  box-shadow: 0 8px 24px rgba(212,90,42,0.4);
-  transform: rotate(3deg);
-  animation: badge-float 3s ease-in-out infinite;
-}
-@media (min-width: 768px) {
-  .hero-badge-float { top: 2rem; right: 0.5rem; font-size: 0.8rem; padding: 1rem 1.25rem; }
-}
-.hero-badge-float span { display: block; font-size: 0.65rem; opacity: 0.9; }
-@media (min-width: 768px) { .hero-badge-float span { font-size: 0.75rem; } }
-.hero-badge-float strong { font-size: 1.5rem; display: block; letter-spacing: 0.05em; }
-@media (min-width: 768px) { .hero-badge-float strong { font-size: 1.8rem; } }
-
-@keyframes badge-float {
-  0%, 100% { transform: rotate(3deg) translateY(0); }
-  50% { transform: rotate(3deg) translateY(-6px); }
-}
-
-.hero-cta { display: flex; flex-direction: column; gap: 0.75rem; align-items: center; }
-@media (min-width: 768px) { .hero-cta { flex-direction: row; justify-content: flex-start; gap: 1rem; } }
+.hero-cta { display: flex; flex-direction: column; gap: 0.625rem; }
+@media (min-width: 768px) { .hero-cta { flex-direction: row; gap: 1rem; } }
 .btn-cta-phone {
   display: flex; align-items: center; justify-content: center; gap: 0.5rem;
   background: var(--color-terra); color: #fff; font-weight: 900;
@@ -884,25 +847,14 @@ body { padding-bottom: 68px; }
 
 /* === Mobile Overhaul === */
 @media (max-width: 767px) {
-  /* Hero mobile: text first, small image beside title */
-  .hero { padding: 76px 0 1rem; }
-  .hero-split { flex-direction: column; gap: 0; }
-  .hero-left { text-align: center; order: 1; }
-  .hero-right { order: 2; margin-top: 0.5rem; }
-  .hero-image-wrap { max-width: 200px; margin: 0 auto; }
-  .hero-badge-float { top: -0.25rem; right: -0.5rem; padding: 0.375rem 0.5rem; }
-  .hero-badge-float span { font-size: 0.45rem; }
-  .hero-badge-float strong { font-size: 0.85rem; }
-  .hero h1 { font-size: 1.6rem; text-align: center; margin-bottom: 0.5rem; }
-  .hero-badge { margin-left: auto; margin-right: auto; margin-bottom: 0.75rem; font-size: 0.65rem; padding: 0.25rem 0.75rem; }
-  .hero-sub { text-align: center; font-size: 0.75rem; margin-bottom: 0.75rem; line-height: 1.6; }
-  .hero-strengths { padding: 0.5rem 0.625rem; margin-bottom: 0.75rem; }
-  .hero-strengths-title { font-size: 0.7rem; margin-bottom: 0.5rem; }
-  .hero-strengths-cards { gap: 0.25rem; }
-  .hero-strength-item { padding: 0.3rem 0.375rem; min-width: auto; flex: 1 1 30%; }
-  .hero-strength-label { font-size: 0.6rem; }
-  .hero-strength-icon { width: 20px; height: 20px; }
-  .hero-strength-icon svg { width: 13px; height: 13px; }
+  /* Hero mobile */
+  .hero { min-height: 100svh; align-items: flex-end; }
+  .hero-content { padding-top: 0; padding-bottom: 5rem; max-width: 100%; text-align: center; }
+  .hero-badge { margin-left: auto; margin-right: auto; font-size: 0.65rem; }
+  .hero h1 { font-size: 2rem; text-align: center; }
+  .hero-sub { text-align: center; font-size: 0.8rem; }
+  .hero-badges-row { justify-content: center; gap: 0.375rem; }
+  .hero-pill, .hero-pill-accent { font-size: 0.65rem; padding: 0.3rem 0.625rem; }
   .hero-cta { align-items: stretch; gap: 0.5rem; }
   .btn-cta-phone, .btn-cta-line { max-width: none; font-size: 0.85rem; padding: 0.75rem; border-radius: 0.625rem; }
   .hero-note { text-align: center; font-size: 0.6rem; }
@@ -984,66 +936,32 @@ body { padding-bottom: 68px; }
 
 <!-- ===== Hero ===== -->
 <section class="hero" id="top">
-  <div class="hero-particles"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-  <div class="hero-split container">
-    <!-- Left: Text -->
-    <div class="hero-left">
-      <div class="hero-badge">
-        <span class="hero-badge-dot"></span>
-        楽器買取 強化中
-      </div>
-      <h1><span class="accent">楽器買取</span>なら<br>徳丸商会</h1>
-      <p class="hero-sub">ギター・ベース・管楽器・ピアノ・電子楽器まで。<br>専門スタッフがご自宅へ伺い、その場で現金お支払い。</p>
-
-      <!-- 3 Strengths Inline -->
-      <div class="hero-strengths">
-        <p class="hero-strengths-title">徳丸商会が選ばれている<strong>3つの理由</strong></p>
-        <div class="hero-strengths-cards">
-          <div class="hero-strength-item">
-            <div class="hero-strength-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-            </div>
-            <span class="hero-strength-label">どこよりも<strong>高価</strong>買取</span>
-          </div>
-          <div class="hero-strength-item">
-            <div class="hero-strength-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 8l-8 8M8 8l8 8"/></svg>
-            </div>
-            <span class="hero-strength-label">手数料すべて<strong>0円</strong></span>
-          </div>
-          <div class="hero-strength-item">
-            <div class="hero-strength-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            </div>
-            <span class="hero-strength-label"><strong>最短即日</strong>スピード対応</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-cta">
-        <a href="tel:052-990-3968" class="btn-cta-phone cta-glow">
-          <svg class="btn-cta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <span>今すぐ電話<small style="display:block;font-size:0.7em;opacity:0.8;font-weight:500;">052-990-3968</small></span>
-        </a>
-        <a href="https://lin.ee/j4wK9IM" target="_blank" rel="noopener noreferrer" class="btn-cta-line cta-glow-line">
-          <svg class="btn-cta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596a.626.626 0 0 1-.199.031c-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-          LINEで無料相談
-        </a>
-      </div>
-      <p class="hero-note">出張費・査定料・キャンセル料 すべて無料 ｜ 受付 9:00-21:00</p>
+  <img class="hero-bg-img" src="images/hero-bg.webp" alt="" loading="eager" fetchpriority="high" decoding="async" width="1600" height="900">
+  <div class="hero-overlay"></div>
+  <div class="hero-content container">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      楽器買取 強化中
     </div>
-
-    <!-- Right: Image -->
-    <div class="hero-right">
-      <div class="hero-image-wrap">
-        <img src="images/hero-instruments-right.webp" alt="ギター・ピアノ・サックスなど多数の楽器を高価買取" loading="eager" width="600" height="600" fetchpriority="high" decoding="async">
-        <div class="hero-badge-float">
-          <span>キズあり</span>
-          <span>訳アリ品も</span>
-          <strong>OK!</strong>
-        </div>
-      </div>
+    <h1><span class="accent">楽器買取</span>なら<br>徳丸商会</h1>
+    <p class="hero-sub">ギター・ベース・管楽器・ピアノ・電子楽器まで。<br>専門スタッフがご自宅へ伺い、その場で現金お支払い。</p>
+    <div class="hero-badges-row">
+      <div class="hero-pill"><strong>高価</strong>買取</div>
+      <div class="hero-pill">手数料<strong>0円</strong></div>
+      <div class="hero-pill"><strong>即日</strong>現金</div>
+      <div class="hero-pill-accent">キズあり・訳アリ品も<strong>OK</strong></div>
     </div>
+    <div class="hero-cta">
+      <a href="tel:052-990-3968" class="btn-cta-phone cta-glow">
+        <svg class="btn-cta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>今すぐ電話<small style="display:block;font-size:0.7em;opacity:0.8;font-weight:500;">052-990-3968</small></span>
+      </a>
+      <a href="https://lin.ee/j4wK9IM" target="_blank" rel="noopener noreferrer" class="btn-cta-line cta-glow-line">
+        <svg class="btn-cta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596a.626.626 0 0 1-.199.031c-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+        LINEで無料相談
+      </a>
+    </div>
+    <p class="hero-note">出張費・査定料・キャンセル料 すべて無料 ｜ 受付 9:00-21:00</p>
   </div>
 </section>
 
