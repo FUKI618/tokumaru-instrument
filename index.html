@@ -408,6 +408,101 @@ ul, ol { list-style: none; }
 .hero-note { color: rgba(255,255,255,0.45); font-size: 0.7rem; margin-top: 0.75rem; text-align: center; }
 @media (min-width: 768px) { .hero-note { text-align: left; } }
 
+/* === Bremen Band Animation === */
+.bremen-strip {
+  background: linear-gradient(to right, var(--color-dark-dark), var(--color-dark), var(--color-dark-dark));
+  overflow: hidden; position: relative;
+  padding: 1rem 0; border-top: 1px solid rgba(212,90,42,0.15);
+  border-bottom: 1px solid rgba(212,90,42,0.15);
+}
+.bremen-track {
+  display: flex; animation: bremen-walk 18s linear infinite;
+  width: max-content;
+}
+@keyframes bremen-walk {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.bremen-group {
+  display: flex; align-items: flex-end; gap: 0.25rem;
+  margin-right: 4rem; flex-shrink: 0;
+}
+.bremen-char {
+  display: flex; flex-direction: column; align-items: center;
+  animation: bremen-bounce 0.6s ease-in-out infinite alternate;
+}
+.bremen-char:nth-child(2) { animation-delay: 0.15s; }
+.bremen-char:nth-child(3) { animation-delay: 0.3s; }
+.bremen-char:nth-child(4) { animation-delay: 0.45s; }
+@keyframes bremen-bounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-6px); }
+}
+.bremen-animal {
+  font-size: 2rem; line-height: 1; filter: drop-shadow(0 2px 8px rgba(212,90,42,0.3));
+}
+@media (min-width: 768px) { .bremen-animal { font-size: 2.5rem; } }
+.bremen-instrument {
+  font-size: 0.9rem; margin-top: -0.25rem; opacity: 0.8;
+}
+@media (min-width: 768px) { .bremen-instrument { font-size: 1.1rem; } }
+.bremen-note {
+  position: absolute; color: var(--color-amber); font-size: 1rem; opacity: 0;
+  animation: note-float 3s ease-out infinite;
+}
+.bremen-note:nth-child(1) { left: 10%; animation-delay: 0s; }
+.bremen-note:nth-child(2) { left: 30%; animation-delay: 0.8s; }
+.bremen-note:nth-child(3) { left: 50%; animation-delay: 1.6s; }
+.bremen-note:nth-child(4) { left: 70%; animation-delay: 2.4s; }
+.bremen-note:nth-child(5) { left: 90%; animation-delay: 0.4s; }
+@keyframes note-float {
+  0% { opacity: 0; transform: translateY(0) scale(0.5); }
+  20% { opacity: 0.7; }
+  100% { opacity: 0; transform: translateY(-40px) scale(1.2) rotate(15deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bremen-track { animation: none; }
+  .bremen-char { animation: none; }
+  .bremen-note { animation: none; display: none; }
+}
+
+/* === Price Cards === */
+.price-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;
+}
+@media (min-width: 768px) { .price-grid { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; } }
+@media (min-width: 1024px) { .price-grid { grid-template-columns: repeat(5, 1fr); } }
+.price-card {
+  background: #fff; border: 1px solid var(--color-border);
+  border-radius: 1rem; overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.price-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+.price-card-img {
+  width: 100%; aspect-ratio: 1; object-fit: cover;
+  background: #fafafa; border-bottom: 1px solid var(--color-border);
+}
+.price-card-body { padding: 0.75rem; }
+@media (min-width: 768px) { .price-card-body { padding: 1rem; } }
+.price-card-category {
+  font-size: 0.65rem; font-weight: 700; color: var(--color-text-lighter);
+  letter-spacing: 0.05em; text-transform: uppercase;
+}
+.price-card-name {
+  font-size: 0.75rem; font-weight: 700; color: var(--color-text);
+  line-height: 1.4; margin: 0.25rem 0 0.5rem;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+@media (min-width: 768px) { .price-card-name { font-size: 0.8rem; } }
+.price-card-price {
+  font-weight: 900; font-size: 1.1rem; line-height: 1;
+  background: linear-gradient(135deg, var(--color-terra), var(--color-amber));
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@media (min-width: 768px) { .price-card-price { font-size: 1.25rem; } }
+
 /* === Section === */
 .section { padding: 3.5rem 0; }
 @media (min-width: 768px) { .section { padding: 5rem 0; } }
@@ -750,6 +845,60 @@ body { padding-bottom: 64px; }
   </div>
 </section>
 
+<!-- ===== Bremen Band Animation ===== -->
+<div class="bremen-strip" aria-hidden="true">
+  <!-- Floating notes -->
+  <span class="bremen-note">&ninth;</span>
+  <span class="bremen-note">&sharp;</span>
+  <span class="bremen-note">&ninth;</span>
+  <span class="bremen-note">&sharp;</span>
+  <span class="bremen-note">&ninth;</span>
+  <div class="bremen-track">
+    <!-- Group 1 -->
+    <div class="bremen-group">
+      <div class="bremen-char"><span class="bremen-instrument">&#x1F3B8;</span><span class="bremen-animal">&#x1F414;</span></div>
+      <div class="bremen-char"><span class="bremen-instrument">&#x1F3B7;</span><span class="bremen-animal">&#x1F431;</span></div>
+      <div class="bremen-char"><span class="bremen-instrument">&#x1F3BA;</span><span class="bremen-animal">&#x1F436;</span></div>
+      <div class="bremen-char"><span class="bremen-instrument">&#x1F3B9;</span><span class="bremen-animal">&#x1FAC2;</span></div>
+    </div>
+    <!-- Group 2 -->
+    <div class="bremen-group">
+      <div class="bremen-char"><span class="bremen-instrument">&#x1F3BB;</span><span class="bremen-animal">&#x1F430;</span></div>
+      <div class="bremen-char"><span class="bremen-instrument">&#x1F941;</span><span class="bremen-animal">&#x1F43B;</span></div>
+      <div class="bremen-char"><span class="bremen-instrument">&#x1F3B5;</span><span class="bremen-animal">&#x1F427;</span></div>
+      <div class="bremen-char"><span class="bremen-instrument">&#x1F3B8;</span><span class="bremen-animal">&#x1F98A;</span></div>
+    </div>
+    <!-- Group 3 (duplicate for seamless loop) -->
+    <div class="bremen-group">
+      <div class="bremen-char"><span class="bremen-instrument">&#x1F3B8;</span><span class="bremen-animal">&#x1F414;</span></div>
+      <div class="bremen-char"><span class="bremen-instrument">&#x1F3B7;</span><span class="bremen-animal">&#x1F431;</span></div>
+      <div class="bremen-char"><span class="bremen-instrument">&#x1F3BA;</span><span class="bremen-animal">&#x1F436;</span></div>
+      <div class="bremen-char"><span class="bremen-instrument">&#x1F3B9;</span><span class="bremen-animal">&#x1FAC2;</span></div>
+    </div>
+    <!-- Group 4 (duplicate) -->
+    <div class="bremen-group">
+      <div class="bremen-char"><span class="bremen-instrument">&#x1F3BB;</span><span class="bremen-animal">&#x1F430;</span></div>
+      <div class="bremen-char"><span class="bremen-instrument">&#x1F941;</span><span class="bremen-animal">&#x1F43B;</span></div>
+      <div class="bremen-char"><span class="bremen-instrument">&#x1F3B5;</span><span class="bremen-animal">&#x1F427;</span></div>
+      <div class="bremen-char"><span class="bremen-instrument">&#x1F3B8;</span><span class="bremen-animal">&#x1F98A;</span></div>
+    </div>
+    <!-- Group 5 (duplicate for wide screens) -->
+    <div class="bremen-group">
+      <div class="bremen-char"><span class="bremen-instrument">&#x1F3B8;</span><span class="bremen-animal">&#x1F414;</span></div>
+      <div class="bremen-char"><span class="bremen-instrument">&#x1F3B7;</span><span class="bremen-animal">&#x1F431;</span></div>
+      <div class="bremen-char"><span class="bremen-instrument">&#x1F3BA;</span><span class="bremen-animal">&#x1F436;</span></div>
+      <div class="bremen-char"><span class="bremen-instrument">&#x1F3B9;</span><span class="bremen-animal">&#x1FAC2;</span></div>
+    </div>
+    <!-- Group 6 (duplicate) -->
+    <div class="bremen-group">
+      <div class="bremen-char"><span class="bremen-instrument">&#x1F3BB;</span><span class="bremen-animal">&#x1F430;</span></div>
+      <div class="bremen-char"><span class="bremen-instrument">&#x1F941;</span><span class="bremen-animal">&#x1F43B;</span></div>
+      <div class="bremen-char"><span class="bremen-instrument">&#x1F3B5;</span><span class="bremen-animal">&#x1F427;</span></div>
+      <div class="bremen-char"><span class="bremen-instrument">&#x1F3B8;</span><span class="bremen-animal">&#x1F98A;</span></div>
+    </div>
+  </div>
+</div>
+
 <!-- ===== 3 Strengths ===== -->
 <section class="section" id="strengths">
   <div class="container">
@@ -886,64 +1035,87 @@ body { padding-bottom: 64px; }
       <h2>楽器の<span class="text-gradient">買取参考価格</span></h2>
       <p class="sub">実際の買取価格は楽器の状態・付属品の有無により変動します。</p>
     </div>
-    <div class="table-wrap reveal">
-      <table class="results-table">
-        <thead>
-          <tr><th>楽器名</th><th>メーカー / モデル</th><th>参考価格</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>エレキギター</td>
-            <td>Gibson Les Paul Standard 50s</td>
-            <td class="price">¥203,500</td>
-          </tr>
-          <tr>
-            <td>エレキギター</td>
-            <td>Fender American Professional II Stratocaster</td>
-            <td class="price">¥132,000</td>
-          </tr>
-          <tr>
-            <td>エレキギター</td>
-            <td>PRS S2 McCarty 594</td>
-            <td class="price">¥207,900</td>
-          </tr>
-          <tr>
-            <td>アコギ</td>
-            <td>Martin D-28</td>
-            <td class="price">¥180,000</td>
-          </tr>
-          <tr>
-            <td>ベース</td>
-            <td>Fender American Professional II Jazz Bass</td>
-            <td class="price">¥120,000</td>
-          </tr>
-          <tr>
-            <td>サックス</td>
-            <td>Selmer テナーサックス SA80 SERIE II</td>
-            <td class="price">¥264,000</td>
-          </tr>
-          <tr>
-            <td>フルート</td>
-            <td>ミヤザワフルート AZ-REH SBR</td>
-            <td class="price">¥319,000</td>
-          </tr>
-          <tr>
-            <td>クラリネット</td>
-            <td>YAMAHA YCL-950</td>
-            <td class="price">¥110,440</td>
-          </tr>
-          <tr>
-            <td>電子ピアノ</td>
-            <td>YAMAHA CLP-785</td>
-            <td class="price">¥95,000</td>
-          </tr>
-          <tr>
-            <td>アンプ</td>
-            <td>Marshall JCM800 2203</td>
-            <td class="price">¥85,000</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="price-grid">
+      <div class="price-card reveal">
+        <img class="price-card-img" src="images/price-lespaul.jpg" alt="Gibson Les Paul Standard" loading="lazy">
+        <div class="price-card-body">
+          <div class="price-card-category">エレキギター</div>
+          <div class="price-card-name">Gibson Les Paul Standard 50s</div>
+          <div class="price-card-price">&yen;203,500</div>
+        </div>
+      </div>
+      <div class="price-card reveal">
+        <img class="price-card-img" src="images/price-strat.jpg" alt="Fender Stratocaster" loading="lazy">
+        <div class="price-card-body">
+          <div class="price-card-category">エレキギター</div>
+          <div class="price-card-name">Fender American Professional II Stratocaster</div>
+          <div class="price-card-price">&yen;132,000</div>
+        </div>
+      </div>
+      <div class="price-card reveal">
+        <img class="price-card-img" src="images/price-prs.jpg" alt="PRS McCarty" loading="lazy">
+        <div class="price-card-body">
+          <div class="price-card-category">エレキギター</div>
+          <div class="price-card-name">PRS S2 McCarty 594</div>
+          <div class="price-card-price">&yen;207,900</div>
+        </div>
+      </div>
+      <div class="price-card reveal">
+        <img class="price-card-img" src="images/price-martin.jpg" alt="Martin D-28" loading="lazy">
+        <div class="price-card-body">
+          <div class="price-card-category">アコースティック</div>
+          <div class="price-card-name">Martin D-28</div>
+          <div class="price-card-price">&yen;180,000</div>
+        </div>
+      </div>
+      <div class="price-card reveal">
+        <img class="price-card-img" src="images/price-jazzbass.jpg" alt="Fender Jazz Bass" loading="lazy">
+        <div class="price-card-body">
+          <div class="price-card-category">ベース</div>
+          <div class="price-card-name">Fender American Professional II Jazz Bass</div>
+          <div class="price-card-price">&yen;120,000</div>
+        </div>
+      </div>
+      <div class="price-card reveal">
+        <img class="price-card-img" src="images/price-saxophone.jpg" alt="Selmer SA80" loading="lazy">
+        <div class="price-card-body">
+          <div class="price-card-category">サックス</div>
+          <div class="price-card-name">Selmer テナーサックス SA80 SERIE II</div>
+          <div class="price-card-price">&yen;264,000</div>
+        </div>
+      </div>
+      <div class="price-card reveal">
+        <img class="price-card-img" src="images/price-flute.jpg" alt="ミヤザワフルート" loading="lazy">
+        <div class="price-card-body">
+          <div class="price-card-category">フルート</div>
+          <div class="price-card-name">ミヤザワフルート AZ-REH SBR</div>
+          <div class="price-card-price">&yen;319,000</div>
+        </div>
+      </div>
+      <div class="price-card reveal">
+        <img class="price-card-img" src="images/price-clarinet.jpg" alt="YAMAHA クラリネット" loading="lazy">
+        <div class="price-card-body">
+          <div class="price-card-category">クラリネット</div>
+          <div class="price-card-name">YAMAHA YCL-950</div>
+          <div class="price-card-price">&yen;110,440</div>
+        </div>
+      </div>
+      <div class="price-card reveal">
+        <img class="price-card-img" src="images/price-piano.jpg" alt="YAMAHA 電子ピアノ" loading="lazy">
+        <div class="price-card-body">
+          <div class="price-card-category">電子ピアノ</div>
+          <div class="price-card-name">YAMAHA CLP-785</div>
+          <div class="price-card-price">&yen;95,000</div>
+        </div>
+      </div>
+      <div class="price-card reveal">
+        <img class="price-card-img" src="images/price-marshall.jpg" alt="Marshall JCM800" loading="lazy">
+        <div class="price-card-body">
+          <div class="price-card-category">アンプ</div>
+          <div class="price-card-name">Marshall JCM800 2203</div>
+          <div class="price-card-price">&yen;85,000</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
