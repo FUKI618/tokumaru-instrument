@@ -24,6 +24,9 @@
 <meta name="twitter:title" content="名古屋の楽器買取なら徳丸商会｜出張費無料">
 <meta name="twitter:description" content="名古屋市・近郊エリアの楽器買取は徳丸商会へ。ギター・ベース・管楽器・ピアノ・電子楽器をその場で現金買取。">
 
+<!-- Favicon -->
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -153,6 +156,8 @@ ul, ol { list-style: none; }
   -webkit-text-fill-color: transparent;
 }
 .font-mincho { font-family: var(--font-mincho); }
+.sp-only { display: inline; }
+@media (min-width: 768px) { .sp-only { display: none; } }
 
 /* === Animations === */
 @keyframes glow-pulse {
@@ -518,7 +523,8 @@ ul, ol { list-style: none; }
 @media (min-width: 768px) { .bremen-parade { gap: 12px; } }
 
 /* Individual character containers */
-.b-char { position: relative; flex-shrink: 0; }
+.b-char { position: relative; flex-shrink: 0; transform: scale(0.7); transform-origin: bottom center; }
+@media (min-width: 768px) { .b-char { transform: scale(1); } }
 
 /* Walking bounce for each character */
 .b-char-inner {
