@@ -378,9 +378,9 @@ ul, ol { list-style: none; }
 .hero {
   position: relative; overflow: hidden;
   background: #0a0806; min-height: 100svh;
-  display: flex; align-items: center;
+  display: flex; align-items: stretch;
 }
-@media (min-width: 768px) { .hero { min-height: 88vh; } }
+@media (min-width: 768px) { .hero { min-height: 92vh; } }
 .hero-bg-img {
   position: absolute; inset: 0; width: 100%; height: 100%;
   object-fit: cover; object-position: center center;
@@ -403,10 +403,15 @@ ul, ol { list-style: none; }
   position: relative; z-index: 10;
   padding-top: 100px; padding-bottom: 2rem;
   text-align: center;
+  display: flex; flex-direction: column; justify-content: space-between;
+  min-height: 100%;
 }
 @media (min-width: 768px) {
-  .hero-content { padding-top: 140px; padding-bottom: 3rem; max-width: 72rem; margin: 0 auto; text-align: center; }
+  .hero-content { padding-top: 140px; padding-bottom: 2.5rem; max-width: 72rem; margin: 0 auto; }
 }
+.hero-top { }
+.hero-middle { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.hero-bottom { }
 .hero-badge {
   display: inline-flex; align-items: center; gap: 0.5rem;
   background: rgba(212,90,42,0.3); border: 1px solid rgba(212,90,42,0.5);
@@ -898,8 +903,8 @@ body { padding-bottom: 68px; }
 @media (min-width: 768px) { .cta-band-text { font-size: 1.2rem; } }
 .cta-band .btn-cta-phone, .cta-band .btn-cta-line { max-width: 260px; padding: 0.875rem 1.75rem; font-size: 0.9rem; }
 @media (max-width: 767px) {
-  .hero { min-height: 100svh; align-items: center; }
-  .hero-content { padding-top: 80px; padding-bottom: 4rem; text-align: center; }
+  .hero { min-height: 100svh; align-items: stretch; }
+  .hero-content { padding-top: 76px; padding-bottom: 5rem; text-align: center; }
   .hero-badge { font-size: 0.6rem; padding: 0.25rem 0.75rem; }
   .hero h1 { font-size: 1.8rem; }
   .hero-sub { font-size: 0.75rem; }
@@ -1019,19 +1024,27 @@ body { padding-bottom: 68px; }
   <img class="hero-bg-img" src="images/hero-bg.webp" alt="" loading="eager" fetchpriority="high" decoding="async" width="1600" height="900">
   <div class="hero-overlay"></div>
   <div class="hero-content container">
-    <div class="hero-badge">
-      <span class="hero-badge-dot"></span>
-      楽器買取 強化中
+    <!-- Top zone: badge -->
+    <div class="hero-top">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        楽器買取 強化中
+      </div>
     </div>
-    <h1><span class="accent">楽器買取</span>なら<br>徳丸商会</h1>
-    <p class="hero-sub">ギター・ベース・管楽器・ピアノ・電子楽器まで。<br>専門スタッフがご自宅へ伺い、その場で現金お支払い。</p>
-    <div class="hero-badges-row">
-      <div class="hero-pill"><strong>高価</strong>買取</div>
-      <div class="hero-pill">手数料<strong>0円</strong></div>
-      <div class="hero-pill"><strong>即日</strong>現金</div>
-      <div class="hero-pill-accent">キズあり・訳アリ品も<strong>OK</strong></div>
+    <!-- Middle zone: h1 + description -->
+    <div class="hero-middle">
+      <h1><span class="accent">楽器買取</span>なら<br>徳丸商会</h1>
+      <p class="hero-sub">ギター・ベース・管楽器・ピアノ・電子楽器まで。<br>専門スタッフがご自宅へ伺い、その場で現金お支払い。</p>
     </div>
-    <div class="hero-cta">
+    <!-- Bottom zone: pills + CTA -->
+    <div class="hero-bottom">
+      <div class="hero-badges-row">
+        <div class="hero-pill"><strong>高価</strong>買取</div>
+        <div class="hero-pill">手数料<strong>0円</strong></div>
+        <div class="hero-pill"><strong>即日</strong>現金</div>
+        <div class="hero-pill-accent">キズあり・訳アリ品も<strong>OK</strong></div>
+      </div>
+      <div class="hero-cta">
       <a href="tel:052-990-3968" class="btn-cta-phone cta-glow">
         <svg class="btn-cta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         <span class="btn-label">今すぐ電話</span><small class="btn-sub">052-990-3968</small>
@@ -1041,7 +1054,8 @@ body { padding-bottom: 68px; }
         <span class="btn-label">LINEで無料相談</span>
       </a>
     </div>
-    <p class="hero-note">出張費・査定料・キャンセル料 すべて無料 ｜ 受付 9:00-21:00</p>
+      <p class="hero-note">出張費・査定料・キャンセル料 すべて無料 ｜ 受付 9:00-21:00</p>
+    </div><!-- /hero-bottom -->
   </div>
 </section>
 
