@@ -170,7 +170,18 @@
   },
   "areaServed": [
     {"@type": "City", "name": "名古屋市"},
-    {"@type": "State", "name": "愛知県"}
+    {"@type": "City", "name": "春日井市"},
+    {"@type": "City", "name": "一宮市"},
+    {"@type": "City", "name": "豊田市"},
+    {"@type": "City", "name": "岡崎市"},
+    {"@type": "City", "name": "豊橋市"},
+    {"@type": "City", "name": "小牧市"},
+    {"@type": "City", "name": "瀬戸市"},
+    {"@type": "City", "name": "半田市"},
+    {"@type": "City", "name": "刈谷市"},
+    {"@type": "State", "name": "愛知県"},
+    {"@type": "State", "name": "岐阜県（一部）"},
+    {"@type": "State", "name": "三重県（一部）"}
   ],
   "priceRange": "無料査定・即日現金払い",
   "openingHoursSpecification": {
@@ -188,6 +199,20 @@
   "sameAs": [
     "https://lin.ee/j4wK9IM"
   ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "楽器買取サービス",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "エレキギター買取"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "アコースティックギター買取"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "ベース買取"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "ピアノ・キーボード買取"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "管楽器買取（サックス・フルート・トランペット）"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "弦楽器買取（バイオリン等）"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "打楽器・ドラム買取"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "アンプ・エフェクター買取"}}
+    ]
+  },
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.9",
@@ -364,13 +389,13 @@ ul, ol { list-style: none; }
 .hero-overlay {
   position: absolute; inset: 0; z-index: 2;
   background:
-    linear-gradient(90deg, rgba(10,8,6,0.95) 0%, rgba(10,8,6,0.85) 20%, rgba(10,8,6,0.4) 38%, rgba(10,8,6,0.05) 55%, transparent 65%),
-    linear-gradient(to top, rgba(10,8,6,0.5) 0%, transparent 25%);
+    linear-gradient(90deg, rgba(10,8,6,0.96) 0%, rgba(10,8,6,0.88) 15%, rgba(10,8,6,0.5) 30%, rgba(10,8,6,0.08) 42%, transparent 52%),
+    linear-gradient(to top, rgba(10,8,6,0.4) 0%, transparent 20%);
 }
 @media (max-width: 767px) {
   .hero-overlay {
     background:
-      linear-gradient(to top, rgba(10,8,6,0.97) 0%, rgba(10,8,6,0.88) 30%, rgba(10,8,6,0.4) 50%, rgba(10,8,6,0.05) 70%, transparent 100%);
+      linear-gradient(to top, rgba(10,8,6,0.97) 0%, rgba(10,8,6,0.9) 25%, rgba(10,8,6,0.5) 42%, rgba(10,8,6,0.1) 58%, transparent 75%);
   }
 }
 .hero-content {
@@ -378,7 +403,7 @@ ul, ol { list-style: none; }
   padding-top: 100px; padding-bottom: 2.5rem;
 }
 @media (min-width: 768px) {
-  .hero-content { padding-top: 160px; padding-bottom: 3rem; max-width: 520px; }
+  .hero-content { padding-top: 160px; padding-bottom: 3rem; max-width: 460px; }
 }
 .hero-badge {
   display: inline-flex; align-items: center; gap: 0.5rem;
@@ -400,7 +425,7 @@ ul, ol { list-style: none; }
   text-shadow: 0 4px 20px rgba(0,0,0,0.5);
 }
 @media (min-width: 768px) { .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; } }
-@media (min-width: 1024px) { .hero h1 { font-size: 4.2rem; } }
+@media (min-width: 1024px) { .hero h1 { font-size: 3.6rem; } }
 .hero h1 .accent {
   background: linear-gradient(135deg, #ff8040, #ffc040);
   -webkit-background-clip: text; background-clip: text;
