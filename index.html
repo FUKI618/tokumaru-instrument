@@ -933,10 +933,12 @@ body { padding-bottom: 68px; }
 @media (max-width: 767px) {
   .hero { min-height: 100svh; align-items: stretch; }
   .hero-content { padding-top: 72px; padding-bottom: 3.5rem; text-align: center; }
-  .hero-middle { padding-bottom: 1rem; flex: 0; justify-content: flex-start; margin-top: 0.5rem; }
-  .hero-middle h1 { background: rgba(10,8,6,0.45); display: inline; padding: 0.1em 0.3em; line-height: 1.5; box-decoration-break: clone; -webkit-box-decoration-break: clone; text-shadow: 0 2px 4px rgba(0,0,0,0.7); }
-  .hero-middle .hero-sub { background: rgba(10,8,6,0.45); display: inline; padding: 0.1em 0.3em; line-height: 2; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
-  .hero-badge { font-size: 0.6rem; padding: 0.25rem 0.75rem; }
+  .hero-middle { display: none; }
+  .hero-top h1 { display: block; margin-top: 0.375rem; text-shadow: 0 2px 4px rgba(0,0,0,0.7); }
+  .hero-top .hero-sub { display: block; margin-top: 0.25rem; text-shadow: 0 1px 3px rgba(0,0,0,0.8); }
+  .hero-badge { font-size: 0.65rem; padding: 0.375rem 0.875rem; }
+  .hero-boost { font-size: 0.65rem; padding: 0.375rem 0.875rem; margin-left: 0.25rem; }
+  .hero-boost strong { font-size: 1.2em; }
   .hero h1 { font-size: 1.8rem; }
   .hero-sub { font-size: 0.75rem; }
   .hero-badges-row { justify-content: center; gap: 0.25rem; margin-bottom: 0.75rem; }
@@ -1057,7 +1059,7 @@ body { padding-bottom: 68px; }
   <img class="hero-bg-img" src="images/hero-bg.webp" alt="" loading="eager" fetchpriority="high" decoding="async" width="1600" height="900">
   <div class="hero-overlay"></div>
   <div class="hero-content container">
-    <!-- Top zone: badge -->
+    <!-- Top zone: badge + h1 + sub (モバイルでは上詰め) -->
     <div class="hero-top">
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
@@ -1066,11 +1068,11 @@ body { padding-bottom: 68px; }
       <div class="hero-boost">
         買取価格 <strong>30</strong><span>%</span>UP
       </div>
-    </div>
-    <!-- Middle zone: h1 + description -->
-    <div class="hero-middle">
       <h1>名古屋の<span class="accent">楽器買取</span>なら<br>徳丸商会</h1>
       <p class="hero-sub">ギター・ベース・管楽器・ピアノ・電子楽器まで。<br>専門スタッフがご自宅へ伺い、その場で現金お支払い。</p>
+    </div>
+    <!-- Middle zone: spacer for PC -->
+    <div class="hero-middle">
     </div>
     <!-- Bottom zone: pills + CTA -->
     <div class="hero-bottom">
