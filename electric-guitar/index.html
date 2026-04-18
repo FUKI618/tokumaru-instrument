@@ -147,7 +147,16 @@ ul,ol{list-style:none}
 .mt tbody tr:nth-child(even){background:var(--color-bg-gray)}
 .mt tbody tr:hover{background:rgba(212,90,42,0.04)}
 .mt-wrap{max-width:52rem;margin:0 auto}
-@media(max-width:767px){.mt thead th,.mt tbody td{padding:0.5rem 0.625rem;font-size:0.7rem}}
+@media(max-width:767px){
+.mt{display:table!important;table-layout:fixed!important;width:100%!important}
+.mt thead{display:table-header-group!important}
+.mt thead tr{display:table-row!important}
+.mt thead th{display:table-cell!important;padding:0.5rem 0.5rem;font-size:0.65rem}
+.mt tbody{display:table-row-group!important}
+.mt tbody tr{display:table-row!important}
+.mt tbody td{display:table-cell!important;padding:0.5rem 0.5rem;font-size:0.65rem}
+.mt thead th:first-child{width:40%}
+}
 /* Tips */
 .tips-list{max-width:48rem;margin:0 auto}
 .tip-item{margin-bottom:2rem}
