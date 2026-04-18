@@ -137,17 +137,17 @@ ul,ol{list-style:none}
 .brands-others span::after{content:'・';color:var(--color-border);margin-left:0.5rem}
 .brands-others span:last-child::after{content:''}
 /* Market Price Table */
-.market-section{max-width:52rem;margin:0 auto}
-.market-group{margin-bottom:1.5rem;background:#fff;border:1px solid var(--color-border);border-radius:1rem;overflow:hidden}
-.market-group-header{background:var(--color-dark);color:#fff;padding:0.625rem 1rem;font-weight:900;font-size:0.9rem}
-.market-row{display:flex;align-items:center;padding:0.625rem 1rem;border-bottom:1px solid var(--color-border)}
-.market-row:last-child{border-bottom:none}
-.market-row:nth-child(even){background:var(--color-bg-gray)}
-.market-model{flex:2;font-weight:700;font-size:0.8rem;color:var(--color-text)}
-.market-price-col{flex:1;text-align:center}
-.market-price-label{font-size:0.55rem;color:var(--color-text-lighter);font-weight:700}
-.market-price-val{font-size:0.8rem;font-weight:900;color:var(--color-terra)}
-@media(max-width:767px){.market-model{font-size:0.7rem}.market-price-val{font-size:0.7rem}.market-row{padding:0.5rem 0.75rem}}
+.mt{width:100%;border-collapse:collapse;margin-bottom:2rem;border-radius:0.75rem;overflow:hidden;border:1px solid var(--color-border)}
+.mt caption{font-weight:900;font-size:1.05rem;text-align:left;margin-bottom:0.625rem;color:var(--color-text);font-family:var(--font-mincho)}
+.mt thead th{background:var(--color-dark);color:#fff;padding:0.75rem 1rem;font-size:0.75rem;font-weight:700;text-align:center}
+.mt thead th:first-child{text-align:left;width:45%}
+.mt tbody td{padding:0.75rem 1rem;font-size:0.85rem;border-bottom:1px solid var(--color-border)}
+.mt tbody td:first-child{font-weight:700}
+.mt tbody td:nth-child(2),.mt tbody td:nth-child(3){text-align:center;color:var(--color-terra);font-weight:900}
+.mt tbody tr:nth-child(even){background:var(--color-bg-gray)}
+.mt tbody tr:hover{background:rgba(212,90,42,0.04)}
+.mt-wrap{max-width:52rem;margin:0 auto}
+@media(max-width:767px){.mt thead th,.mt tbody td{padding:0.5rem 0.625rem;font-size:0.7rem}}
 /* Tips */
 .tips-list{max-width:48rem;margin:0 auto}
 .tip-item{margin-bottom:2rem}
@@ -295,11 +295,53 @@ ul,ol{list-style:none}
 <section class="section" id="market">
 <div class="container">
 <div class="section-title"><span class="en">Market Price</span><h2>エレキギターの<span class="text-gradient">買取相場</span></h2><p class="sub">ブランド・モデル・製造年代・楽器の状態によって大きく変動します。以下は主要ブランドの一般的な買取相場の目安です。</p></div>
-<div class="market-section">
+<div class="mt-wrap">
 
-<div class="market-group">
-<div class="market-group-header">Fender（フェンダー）</div>
-<div class="market-row" style="border-bottom:1px solid rgba(255,255,255,0.2);background:rgba(44,36,32,0.05)"><div class="market-model" style="color:var(--color-text-lighter);font-size:0.6rem">モデル</div><div class="market-price-col"><div class="market-price-label">美品</div></div><div class="market-price-col"><div class="market-price-label">中古</div></div></div>
+<table class="mt">
+<caption>Fender（フェンダー）の買取相場</caption>
+<thead><tr><th>製品名</th><th>美品</th><th>中古</th></tr></thead>
+<tbody>
+<tr><td>American Pro II Strat</td><td>13.5〜16.5万</td><td>9.5〜12万</td></tr>
+<tr><td>American Ultra</td><td>14〜18万</td><td>10〜13.5万</td></tr>
+<tr><td>MIJ Traditional</td><td>6〜8.5万</td><td>4〜5.5万</td></tr>
+</tbody></table>
+
+<table class="mt">
+<caption>Gibson（ギブソン）の買取相場</caption>
+<thead><tr><th>製品名</th><th>美品</th><th>中古</th></tr></thead>
+<tbody>
+<tr><td>Les Paul Standard</td><td>15〜20万</td><td>11〜14万</td></tr>
+<tr><td>Les Paul Custom</td><td>28〜40万</td><td>22〜27万</td></tr>
+<tr><td>SG Standard</td><td>8〜11万</td><td>5.5〜7.5万</td></tr>
+</tbody></table>
+
+<table class="mt">
+<caption>Ibanez（アイバニーズ）の買取相場</caption>
+<thead><tr><th>製品名</th><th>美品</th><th>中古</th></tr></thead>
+<tbody>
+<tr><td>RG Prestige</td><td>7〜11万</td><td>4.5〜6.5万</td></tr>
+<tr><td>j.custom</td><td>12〜18万</td><td>8〜11万</td></tr>
+<tr><td>AZ Prestige</td><td>10〜14万</td><td>6.5〜8.5万</td></tr>
+</tbody></table>
+
+<table class="mt">
+<caption>PRS の買取相場</caption>
+<thead><tr><th>製品名</th><th>美品</th><th>中古</th></tr></thead>
+<tbody>
+<tr><td>Custom 24 Core</td><td>18〜25万</td><td>13〜17万</td></tr>
+<tr><td>Silver Sky Core</td><td>16〜22万</td><td>11〜15万</td></tr>
+<tr><td>SE Standard 24</td><td>2.5〜4万</td><td>1.5〜2.5万</td></tr>
+</tbody></table>
+
+<table class="mt">
+<caption>YAMAHA（ヤマハ）の買取相場</caption>
+<thead><tr><th>製品名</th><th>美品</th><th>中古</th></tr></thead>
+<tbody>
+<tr><td>PACIFICA 612</td><td>3.5〜5.5万</td><td>2.2〜3.5万</td></tr>
+<tr><td>REVSTAR Pro</td><td>12〜16万</td><td>7.5〜10万</td></tr>
+</tbody></table>
+
+</div><div class="market-price-col"><div class="market-price-label">中古</div></div></div>
 <div class="market-row"><div class="market-model">American Pro II Strat</div><div class="market-price-col"><div class="market-price-val">13.5〜16.5万</div></div><div class="market-price-col"><div class="market-price-val">9.5〜12万</div></div></div>
 <div class="market-row"><div class="market-model">American Ultra</div><div class="market-price-col"><div class="market-price-val">14〜18万</div></div><div class="market-price-col"><div class="market-price-val">10〜13.5万</div></div></div>
 <div class="market-row"><div class="market-model">MIJ Traditional</div><div class="market-price-col"><div class="market-price-val">6〜8.5万</div></div><div class="market-price-col"><div class="market-price-val">4〜5.5万</div></div></div>
