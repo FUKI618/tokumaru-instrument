@@ -137,13 +137,16 @@ ul,ol{list-style:none}
 .brands-others span::after{content:'・';color:var(--color-border);margin-left:0.5rem}
 .brands-others span:last-child::after{content:''}
 /* Market Price Table */
-.market-table{width:100%;border-collapse:collapse;margin-bottom:2rem;font-size:0.85rem}
-.market-table caption{font-weight:900;font-size:1rem;text-align:left;margin-bottom:0.5rem;color:var(--color-text)}
-.market-table th{background:var(--color-dark);color:#fff;padding:0.625rem 0.75rem;font-size:0.75rem;font-weight:700;text-align:left}
-.market-table td{padding:0.625rem 0.75rem;border-bottom:1px solid var(--color-border);font-size:0.8rem}
-.market-table td:nth-child(2),.market-table td:nth-child(3){color:var(--color-terra);font-weight:700;white-space:nowrap}
-.market-table tr:nth-child(even){background:var(--color-bg-gray)}
-.market-table-wrap{overflow-x:auto;max-width:52rem;margin:0 auto;background:#fff;border-radius:1.25rem;padding:2rem;border:1px solid var(--color-border);box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+.market-brand{max-width:52rem;margin:0 auto 2rem}
+.market-brand-title{font-weight:900;font-size:1rem;margin-bottom:0.75rem;color:var(--color-text);padding-left:0.75rem;border-left:4px solid var(--color-terra)}
+.market-cards{display:grid;grid-template-columns:1fr;gap:0.625rem}
+@media(min-width:768px){.market-cards{grid-template-columns:repeat(3,1fr);gap:1rem}}
+.market-card{background:#fff;border:1px solid var(--color-border);border-radius:1rem;padding:1rem;display:flex;flex-direction:column;gap:0.25rem}
+.market-card-name{font-weight:700;font-size:0.85rem;color:var(--color-text)}
+.market-card-prices{display:flex;gap:0.75rem;margin-top:0.25rem}
+.market-card-price{flex:1}
+.market-card-price-label{font-size:0.6rem;color:var(--color-text-lighter);font-weight:700}
+.market-card-price-value{font-size:0.8rem;font-weight:900;color:var(--color-terra)}
 /* Tips */
 .tips-list{max-width:48rem;margin:0 auto}
 .tip-item{margin-bottom:2rem}
@@ -205,14 +208,14 @@ ul,ol{list-style:none}
   .hero-middle{display:none}
   .hero-top h1{display:block;margin-top:0.375rem;text-shadow:0 2px 4px rgba(0,0,0,0.7);background:rgba(10,8,6,0.45);padding:0.5rem 0.75rem;border-radius:0.5rem}
   .hero-top .hero-sub{display:block;margin-top:0.25rem;text-shadow:0 1px 3px rgba(0,0,0,0.8);background:rgba(10,8,6,0.45);padding:0.375rem 0.75rem;border-radius:0.375rem}
-  .hero h1{font-size:1.8rem}
-  .hero-sub{font-size:0.75rem}
+  .hero h1{font-size:1.4rem}
+  .hero-sub{font-size:0.65rem;line-height:1.5}
   .hero-badge{font-size:0.65rem;padding:0.375rem 0.875rem}
   .hero-boost{font-size:0.65rem;padding:0.375rem 0.875rem;margin-left:0.25rem}
   .hero-boost strong{font-size:1.2em}
   .hero-badges-row{justify-content:center;gap:0.25rem;margin-bottom:0.75rem}
-  .hero-pill{font-size:0.6rem;padding:0.3rem 0.625rem;background:rgba(255,255,255,0.2);border-color:rgba(255,255,255,0.35);color:#fff;font-weight:700}
-  .hero-pill-accent{font-size:0.6rem;padding:0.3rem 0.625rem;background:rgba(212,90,42,0.5);border-color:rgba(212,90,42,0.7);color:#fff}
+  .hero-pill{font-size:0.55rem;padding:0.25rem 0.5rem;background:rgba(255,255,255,0.25);border-color:rgba(255,255,255,0.4);color:#fff;font-weight:700}
+  .hero-pill-accent{font-size:0.55rem;padding:0.25rem 0.5rem;background:rgba(212,90,42,0.5);border-color:rgba(212,90,42,0.7);color:#fff}
   .hero-cta{display:grid;grid-template-columns:1fr 1fr;gap:0.375rem}
   .btn-cta-phone,.btn-cta-line{max-width:none;font-size:0.8rem;padding:0.75rem 0.5rem;border-radius:0.625rem;min-width:0}
   .btn-sub{display:block;margin-left:0;margin-top:1px}
@@ -225,8 +228,8 @@ ul,ol{list-style:none}
   .price-card-reason{font-size:0.55rem}
   .brands-featured{gap:0.5rem}
   .brand-featured-item{padding:0.75rem 0.25rem;font-size:0.75rem}
-  .market-table{font-size:0.65rem}.market-table caption{font-size:0.85rem}
-  .market-table th,.market-table td{padding:0.375rem 0.5rem}
+  
+  
   .condition-grid{gap:0.5rem}
   .condition-item{padding:1rem 0.25rem}
   .condition-label{font-size:0.7rem}
@@ -291,33 +294,36 @@ ul,ol{list-style:none}
 <section class="section" id="market">
 <div class="container">
 <div class="section-title"><span class="en">Market Price</span><h2>エレキギターの<span class="text-gradient">買取相場</span></h2><p class="sub">ブランド・モデル・製造年代・楽器の状態によって大きく変動します。以下は主要ブランドの一般的な買取相場の目安です。</p></div>
-<div class="market-table-wrap">
-<table class="market-table"><caption>Fender（フェンダー）の買取相場</caption><thead><tr><th>製品名</th><th>状態（美品）</th><th>状態（中古品）</th></tr></thead><tbody>
-<tr><td>American Professional II Stratocaster</td><td>135,000〜165,000円</td><td>95,000〜120,000円</td></tr>
-<tr><td>American Ultra Strat / Telecaster</td><td>140,000〜180,000円</td><td>100,000〜135,000円</td></tr>
-<tr><td>Made in Japan Traditional シリーズ</td><td>60,000〜85,000円</td><td>40,000〜55,000円</td></tr>
-</tbody></table>
-<table class="market-table"><caption>Gibson（ギブソン）の買取相場</caption><thead><tr><th>製品名</th><th>状態（美品）</th><th>状態（中古品）</th></tr></thead><tbody>
-<tr><td>Les Paul Standard ('50s / '60s)</td><td>150,000〜200,000円</td><td>110,000〜140,000円</td></tr>
-<tr><td>Les Paul Custom (Custom Shop)</td><td>280,000〜400,000円</td><td>220,000〜270,000円</td></tr>
-<tr><td>SG Standard</td><td>80,000〜110,000円</td><td>55,000〜75,000円</td></tr>
-</tbody></table>
-<table class="market-table"><caption>Ibanez（アイバニーズ）の買取相場</caption><thead><tr><th>製品名</th><th>状態（美品）</th><th>状態（中古品）</th></tr></thead><tbody>
-<tr><td>RG Prestige シリーズ</td><td>70,000〜110,000円</td><td>45,000〜65,000円</td></tr>
-<tr><td>j.custom シリーズ</td><td>120,000〜180,000円</td><td>80,000〜110,000円</td></tr>
-<tr><td>AZ Prestige シリーズ</td><td>100,000〜140,000円</td><td>65,000〜85,000円</td></tr>
-</tbody></table>
-<table class="market-table"><caption>Paul Reed Smith（PRS）の買取相場</caption><thead><tr><th>製品名</th><th>状態（美品）</th><th>状態（中古品）</th></tr></thead><tbody>
-<tr><td>Custom 24 (Core)</td><td>180,000〜250,000円</td><td>130,000〜170,000円</td></tr>
-<tr><td>Silver Sky (Core)</td><td>160,000〜220,000円</td><td>110,000〜150,000円</td></tr>
-<tr><td>SE Standard 24</td><td>25,000〜40,000円</td><td>15,000〜25,000円</td></tr>
-</tbody></table>
-<table class="market-table"><caption>YAMAHA（ヤマハ）の買取相場</caption><thead><tr><th>製品名</th><th>状態（美品）</th><th>状態（中古品）</th></tr></thead><tbody>
-<tr><td>PACIFICA 612シリーズ</td><td>35,000〜55,000円</td><td>22,000〜35,000円</td></tr>
-<tr><td>REVSTAR Professional シリーズ</td><td>120,000〜160,000円</td><td>75,000〜100,000円</td></tr>
-</tbody></table>
-<p style="font-size:0.7rem;color:var(--color-text-lighter);margin-top:1rem">※上記は一般的な中古市場における参考価格です。ギターの買取価格はネックの状態（反り・ねじれ）、フレットの残り、電装系の動作、純正ハードケースの有無等により大きく変動します。正確な金額はプロの査定士による無料査定でご確認ください。</p>
-</div>
+<div class="market-brand"><h3 class="market-brand-title">Fender（フェンダー）</h3><div class="market-cards">
+<div class="market-card"><div class="market-card-name">American Pro II Strat</div><div class="market-card-prices"><div class="market-card-price"><div class="market-card-price-label">美品</div><div class="market-card-price-value">13.5〜16.5万</div></div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">9.5〜12万</div></div></div></div>
+<div class="market-card"><div class="market-card-name">American Ultra</div><div class="market-card-prices"><div class="market-card-price"><div class="market-card-price-label">美品</div><div class="market-card-price-value">14〜18万</div></div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">10〜13.5万</div></div></div></div>
+<div class="market-card"><div class="market-card-name">MIJ Traditional</div><div class="market-card-prices"><div class="market-card-price"><div class="market-card-price-label">美品</div><div class="market-card-price-value">6〜8.5万</div></div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">4〜5.5万</div></div></div></div>
+</div></div>
+
+<div class="market-brand"><h3 class="market-brand-title">Gibson（ギブソン）</h3><div class="market-cards">
+<div class="market-card"><div class="market-card-name">Les Paul Standard</div><div class="market-card-prices"><div class="market-card-price"><div class="market-card-price-label">美品</div><div class="market-card-price-value">15〜20万</div></div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">11〜14万</div></div></div></div>
+<div class="market-card"><div class="market-card-name">Les Paul Custom</div><div class="market-card-prices"><div class="market-card-price"><div class="market-card-price-label">美品</div><div class="market-card-price-value">28〜40万</div></div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">22〜27万</div></div></div></div>
+<div class="market-card"><div class="market-card-name">SG Standard</div><div class="market-card-prices"><div class="market-card-price"><div class="market-card-price-label">美品</div><div class="market-card-price-value">8〜11万</div></div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">5.5〜7.5万</div></div></div></div>
+</div></div>
+
+<div class="market-brand"><h3 class="market-brand-title">Ibanez（アイバニーズ）</h3><div class="market-cards">
+<div class="market-card"><div class="market-card-name">RG Prestige</div><div class="market-card-prices"><div class="market-card-price"><div class="market-card-price-label">美品</div><div class="market-card-price-value">7〜11万</div></div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">4.5〜6.5万</div></div></div></div>
+<div class="market-card"><div class="market-card-name">j.custom</div><div class="market-card-prices"><div class="market-card-price"><div class="market-card-price-label">美品</div><div class="market-card-price-value">12〜18万</div></div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">8〜11万</div></div></div></div>
+<div class="market-card"><div class="market-card-name">AZ Prestige</div><div class="market-card-prices"><div class="market-card-price"><div class="market-card-price-label">美品</div><div class="market-card-price-value">10〜14万</div></div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">6.5〜8.5万</div></div></div></div>
+</div></div>
+
+<div class="market-brand"><h3 class="market-brand-title">PRS</h3><div class="market-cards">
+<div class="market-card"><div class="market-card-name">Custom 24 Core</div><div class="market-card-prices"><div class="market-card-price"><div class="market-card-price-label">美品</div><div class="market-card-price-value">18〜25万</div></div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">13〜17万</div></div></div></div>
+<div class="market-card"><div class="market-card-name">Silver Sky Core</div><div class="market-card-prices"><div class="market-card-price"><div class="market-card-price-label">美品</div><div class="market-card-price-value">16〜22万</div></div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">11〜15万</div></div></div></div>
+<div class="market-card"><div class="market-card-name">SE Standard 24</div><div class="market-card-prices"><div class="market-card-price"><div class="market-card-price-label">美品</div><div class="market-card-price-value">2.5〜4万</div></div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">1.5〜2.5万</div></div></div></div>
+</div></div>
+
+<div class="market-brand"><h3 class="market-brand-title">YAMAHA（ヤマハ）</h3><div class="market-cards">
+<div class="market-card"><div class="market-card-name">PACIFICA 612</div><div class="market-card-prices"><div class="market-card-price"><div class="market-card-price-label">美品</div><div class="market-card-price-value">3.5〜5.5万</div></div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">2.2〜3.5万</div></div></div></div>
+<div class="market-card"><div class="market-card-name">REVSTAR Pro</div><div class="market-card-prices"><div class="market-card-price"><div class="market-card-price-label">美品</div><div class="market-card-price-value">12〜16万</div></div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">7.5〜10万</div></div></div></div>
+</div></div>
+
+<p style="font-size:0.65rem;color:var(--color-text-lighter);margin-top:1rem;max-width:52rem;margin-left:auto;margin-right:auto">※一般的な中古市場における参考価格です。ネック状態・フレット残り・電装系の動作・純正ケースの有無等で大きく変動します。正確な金額は無料査定でご確認ください。</p>
 </div>
 </section>
 
@@ -339,15 +345,15 @@ ul,ol{list-style:none}
 <div class="section-title"><span class="en">High Value</span><h2>高く売れやすい<span class="text-gradient">エレキギター</span>とは？</h2></div>
 <div style="max-width:52rem;margin:0 auto;display:flex;flex-direction:column;gap:1.5rem">
 <div style="display:flex;gap:1.5rem;align-items:flex-start;background:#fff;border:1px solid var(--color-border);border-radius:1.25rem;padding:1.5rem;flex-wrap:wrap">
-<img src="images/sec-brand.webp" alt="王道ブランド Gibson Fender" width="160" height="160" loading="lazy" style="width:100px;height:100px;object-fit:cover;border-radius:0.75rem;flex-shrink:0">
+<img src="images/sec-brand.webp" alt="王道ブランド Gibson Fender" width="160" height="160" loading="lazy" style="width:80px;height:80px;object-fit:cover;border-radius:0.75rem;flex-shrink:0">
 <div style="flex:1;min-width:220px"><h3 style="font-size:1.05rem;font-weight:900;margin-bottom:0.5rem;border-left:4px solid var(--color-terra);padding-left:0.75rem">フェンダーやギブソンなどの王道ブランド</h3><p style="font-size:0.875rem;color:var(--color-text-light);line-height:1.8">世界的な定番ブランドは中古市場での需要が圧倒的に高く、安定した高価買取が期待できます。特に「Made in USA」のモデルや、カスタムショップ製の個体は資産価値としても非常に高く評価されます。</p></div>
 </div>
 <div style="display:flex;gap:1.5rem;align-items:flex-start;background:#fff;border:1px solid var(--color-border);border-radius:1.25rem;padding:1.5rem;flex-wrap:wrap">
-<img src="images/sec-original.webp" alt="フルオリジナルパーツ" width="160" height="160" loading="lazy" style="width:100px;height:100px;object-fit:cover;border-radius:0.75rem;flex-shrink:0">
+<img src="images/sec-original.webp" alt="フルオリジナルパーツ" width="160" height="160" loading="lazy" style="width:80px;height:80px;object-fit:cover;border-radius:0.75rem;flex-shrink:0">
 <div style="flex:1;min-width:220px"><h3 style="font-size:1.05rem;font-weight:900;margin-bottom:0.5rem;border-left:4px solid var(--color-terra);padding-left:0.75rem">「フルオリジナル」のコンディション</h3><p style="font-size:0.875rem;color:var(--color-text-light);line-height:1.8">製造から数十年が経過したヴィンテージギターにおいて、ピックアップやペグ、ポット、そしてネジ1本に至るまで、交換・改造せず当時のままの状態（フルオリジナル）であることは大きな強みです。希少性が高く、高値で取引されています。</p></div>
 </div>
 <div style="display:flex;gap:1.5rem;align-items:flex-start;background:#fff;border:1px solid var(--color-border);border-radius:1.25rem;padding:1.5rem;flex-wrap:wrap">
-<img src="images/sec-neck.webp" alt="ネック状態良好" width="160" height="160" loading="lazy" style="width:100px;height:100px;object-fit:cover;border-radius:0.75rem;flex-shrink:0">
+<img src="images/sec-neck.webp" alt="ネック状態良好" width="160" height="160" loading="lazy" style="width:80px;height:80px;object-fit:cover;border-radius:0.75rem;flex-shrink:0">
 <div style="flex:1;min-width:220px"><h3 style="font-size:1.05rem;font-weight:900;margin-bottom:0.5rem;border-left:4px solid var(--color-terra);padding-left:0.75rem">ネックや電装系の状態が良好なもの</h3><p style="font-size:0.875rem;color:var(--color-text-light);line-height:1.8">ギターは「生もの」と言われるほど木材の状態が重要です。ネックに反りがなく、アンプに繋いだ際に「ガリ」と呼ばれるノイズが出ないものは、即戦力として高く評価されます。</p></div>
 </div>
 </div>
@@ -373,15 +379,15 @@ ul,ol{list-style:none}
 <div class="section-title"><span class="en">Selling Tips</span><h2>エレキギターを<span class="text-gradient">高く売るコツ</span></h2><p class="sub">保管状態や少しのメンテナンスで査定額に大きな差が出る楽器です。大切にされてきた相棒を、次のオーナー様へ最高の状態でお繋ぎするための3つの秘訣をご紹介します。</p></div>
 <div style="max-width:52rem;margin:0 auto;display:flex;flex-direction:column;gap:1.5rem">
 <div style="display:flex;gap:1.5rem;align-items:flex-start;background:#fff;border:1px solid var(--color-border);border-radius:1.25rem;padding:1.5rem;flex-wrap:wrap">
-<img src="images/sec-clean.webp" alt="ギタークリーニング" width="160" height="160" loading="lazy" style="width:100px;height:100px;object-fit:cover;border-radius:0.75rem;flex-shrink:0">
+<img src="images/sec-clean.webp" alt="ギタークリーニング" width="160" height="160" loading="lazy" style="width:80px;height:80px;object-fit:cover;border-radius:0.75rem;flex-shrink:0">
 <div style="flex:1;min-width:220px"><div style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;font-weight:900;font-size:1rem;color:#fff;background:linear-gradient(135deg,var(--color-terra),var(--color-amber));border-radius:0.5rem;margin-bottom:0.5rem">01</div><h3 style="font-size:1.05rem;font-weight:900;margin-bottom:0.5rem">査定前のお手入れで第一印象アップ</h3><p style="font-size:0.875rem;color:var(--color-text-light);line-height:1.8">ボディの指紋やホコリ、金属パーツのくすみなどは、専用のクロスで拭き取るだけで印象がガラリと変わります。ヘッドの裏やブリッジ周りが綺麗だと、大切に扱われてきた証として高評価に直結します。</p></div>
 </div>
 <div style="display:flex;gap:1.5rem;align-items:flex-start;background:#fff;border:1px solid var(--color-border);border-radius:1.25rem;padding:1.5rem;flex-wrap:wrap">
-<img src="images/sec-case.webp" alt="純正ギターケース" width="160" height="160" loading="lazy" style="width:100px;height:100px;object-fit:cover;border-radius:0.75rem;flex-shrink:0">
+<img src="images/sec-case.webp" alt="純正ギターケース" width="160" height="160" loading="lazy" style="width:80px;height:80px;object-fit:cover;border-radius:0.75rem;flex-shrink:0">
 <div style="flex:1;min-width:220px"><div style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;font-weight:900;font-size:1rem;color:#fff;background:linear-gradient(135deg,var(--color-terra),var(--color-amber));border-radius:0.5rem;margin-bottom:0.5rem">02</div><h3 style="font-size:1.05rem;font-weight:900;margin-bottom:0.5rem">「純正ケース」などの付属品を揃える</h3><p style="font-size:0.875rem;color:var(--color-text-light);line-height:1.8">ご購入時の付属品はすべてセットでお出しください。特にカスタムショップ製の「認定証」や、純正のケース、アームなどは査定額に大きく影響します。</p></div>
 </div>
 <div style="display:flex;gap:1.5rem;align-items:flex-start;background:#fff;border:1px solid var(--color-border);border-radius:1.25rem;padding:1.5rem;flex-wrap:wrap">
-<img src="images/sec-strings.webp" alt="新しい弦に張り替え" width="160" height="160" loading="lazy" style="width:100px;height:100px;object-fit:cover;border-radius:0.75rem;flex-shrink:0">
+<img src="images/sec-strings.webp" alt="新しい弦に張り替え" width="160" height="160" loading="lazy" style="width:80px;height:80px;object-fit:cover;border-radius:0.75rem;flex-shrink:0">
 <div style="flex:1;min-width:220px"><div style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;font-weight:900;font-size:1rem;color:#fff;background:linear-gradient(135deg,var(--color-terra),var(--color-amber));border-radius:0.5rem;margin-bottom:0.5rem">03</div><h3 style="font-size:1.05rem;font-weight:900;margin-bottom:0.5rem">新しい弦に張り替えておく</h3><p style="font-size:0.875rem;color:var(--color-text-light);line-height:1.8">錆びた弦のままでは本来のサウンドを確認しにくいため、フレッシュな状態であるほど「大切に手入れされていたギター」という印象を査定員に強く与えます。</p></div>
 </div>
 </div>
