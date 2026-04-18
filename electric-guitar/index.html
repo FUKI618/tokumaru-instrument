@@ -147,10 +147,20 @@ ul,ol{list-style:none}
 .mt tbody tr:nth-child(even){background:var(--color-bg-gray)}
 .mt tbody tr:hover{background:rgba(212,90,42,0.04)}
 .mt-wrap{max-width:52rem;margin:0 auto}
+.mt-group{margin-bottom:1.5rem}
+.mt-caption{font-weight:900;font-size:0.95rem;margin-bottom:0.5rem;font-family:var(--font-mincho)}
+.mt-header{display:flex;background:var(--color-dark);color:#fff;font-size:0.7rem;font-weight:700;border-radius:0.5rem 0.5rem 0 0}
+.mt-header span{padding:0.625rem 0.5rem;text-align:center}
+.mt-header span:first-child{flex:2;text-align:left}
+.mt-header span:nth-child(2),.mt-header span:nth-child(3){flex:1}
+.mt-row{display:flex;border-bottom:1px solid var(--color-border);border-left:1px solid var(--color-border);border-right:1px solid var(--color-border)}
+.mt-row:last-child{border-radius:0 0 0.5rem 0.5rem}
+.mt-row:nth-child(even){background:var(--color-bg-gray)}
+.mt-row span{padding:0.625rem 0.5rem;font-size:0.8rem}
+.mt-row span:first-child{flex:2;font-weight:700}
+.mt-row span:nth-child(2),.mt-row span:nth-child(3){flex:1;text-align:center;color:var(--color-terra);font-weight:900}
+@media(max-width:767px){.mt-header span,.mt-row span{padding:0.5rem 0.375rem;font-size:0.65rem}}
 @media(max-width:767px){
-.mt{display:table!important;table-layout:fixed!important;width:100%!important}
-.mt thead{display:table-header-group!important}
-.mt thead tr{display:table-row!important}
 .mt thead th{display:table-cell!important;padding:0.5rem 0.5rem;font-size:0.65rem}
 .mt tbody{display:table-row-group!important}
 .mt tbody tr{display:table-row!important}
@@ -343,48 +353,8 @@ ul,ol{list-style:none}
 <div class="mt-header"><span>製品名</span><span>美品</span><span>中古</span></div>
 <div class="mt-row"><span>PACIFICA 612</span><span>3.5〜5.5万</span><span>2.2〜3.5万</span></div>
 <div class="mt-row"><span>REVSTAR Pro</span><span>12〜16万</span><span>7.5〜10万</span></div>
-</div>
 
-</div><div class="market-price-col"><div class="market-price-label">中古</div></div></div>
-<div class="market-row"><div class="market-model">American Pro II Strat</div><div class="market-price-col"><div class="market-price-val">13.5〜16.5万</div></div><div class="market-price-col"><div class="market-price-val">9.5〜12万</div></div></div>
-<div class="market-row"><div class="market-model">American Ultra</div><div class="market-price-col"><div class="market-price-val">14〜18万</div></div><div class="market-price-col"><div class="market-price-val">10〜13.5万</div></div></div>
-<div class="market-row"><div class="market-model">MIJ Traditional</div><div class="market-price-col"><div class="market-price-val">6〜8.5万</div></div><div class="market-price-col"><div class="market-price-val">4〜5.5万</div></div></div>
 </div>
-
-<div class="market-group">
-<div class="market-group-header">Gibson（ギブソン）</div>
-<div class="market-row" style="border-bottom:1px solid rgba(255,255,255,0.2);background:rgba(44,36,32,0.05)"><div class="market-model" style="color:var(--color-text-lighter);font-size:0.6rem">モデル</div><div class="market-price-col"><div class="market-price-label">美品</div></div><div class="market-price-col"><div class="market-price-label">中古</div></div></div>
-<div class="market-row"><div class="market-model">Les Paul Standard</div><div class="market-price-col"><div class="market-price-val">15〜20万</div></div><div class="market-price-col"><div class="market-price-val">11〜14万</div></div></div>
-<div class="market-row"><div class="market-model">Les Paul Custom</div><div class="market-price-col"><div class="market-price-val">28〜40万</div></div><div class="market-price-col"><div class="market-price-val">22〜27万</div></div></div>
-<div class="market-row"><div class="market-model">SG Standard</div><div class="market-price-col"><div class="market-price-val">8〜11万</div></div><div class="market-price-col"><div class="market-price-val">5.5〜7.5万</div></div></div>
-</div>
-
-<div class="market-group">
-<div class="market-group-header">Ibanez（アイバニーズ）</div>
-<div class="market-row" style="border-bottom:1px solid rgba(255,255,255,0.2);background:rgba(44,36,32,0.05)"><div class="market-model" style="color:var(--color-text-lighter);font-size:0.6rem">モデル</div><div class="market-price-col"><div class="market-price-label">美品</div></div><div class="market-price-col"><div class="market-price-label">中古</div></div></div>
-<div class="market-row"><div class="market-model">RG Prestige</div><div class="market-price-col"><div class="market-price-val">7〜11万</div></div><div class="market-price-col"><div class="market-price-val">4.5〜6.5万</div></div></div>
-<div class="market-row"><div class="market-model">j.custom</div><div class="market-price-col"><div class="market-price-val">12〜18万</div></div><div class="market-price-col"><div class="market-price-val">8〜11万</div></div></div>
-<div class="market-row"><div class="market-model">AZ Prestige</div><div class="market-price-col"><div class="market-price-val">10〜14万</div></div><div class="market-price-col"><div class="market-price-val">6.5〜8.5万</div></div></div>
-</div>
-
-<div class="market-group">
-<div class="market-group-header">PRS</div>
-<div class="market-row" style="border-bottom:1px solid rgba(255,255,255,0.2);background:rgba(44,36,32,0.05)"><div class="market-model" style="color:var(--color-text-lighter);font-size:0.6rem">モデル</div><div class="market-price-col"><div class="market-price-label">美品</div></div><div class="market-price-col"><div class="market-price-label">中古</div></div></div>
-<div class="market-row"><div class="market-model">Custom 24 Core</div><div class="market-price-col"><div class="market-price-val">18〜25万</div></div><div class="market-price-col"><div class="market-price-val">13〜17万</div></div></div>
-<div class="market-row"><div class="market-model">Silver Sky Core</div><div class="market-price-col"><div class="market-price-val">16〜22万</div></div><div class="market-price-col"><div class="market-price-val">11〜15万</div></div></div>
-<div class="market-row"><div class="market-model">SE Standard 24</div><div class="market-price-col"><div class="market-price-val">2.5〜4万</div></div><div class="market-price-col"><div class="market-price-val">1.5〜2.5万</div></div></div>
-</div>
-
-<div class="market-group">
-<div class="market-group-header">YAMAHA（ヤマハ）</div>
-<div class="market-row" style="border-bottom:1px solid rgba(255,255,255,0.2);background:rgba(44,36,32,0.05)"><div class="market-model" style="color:var(--color-text-lighter);font-size:0.6rem">モデル</div><div class="market-price-col"><div class="market-price-label">美品</div></div><div class="market-price-col"><div class="market-price-label">中古</div></div></div>
-<div class="market-row"><div class="market-model">PACIFICA 612</div><div class="market-price-col"><div class="market-price-val">3.5〜5.5万</div></div><div class="market-price-col"><div class="market-price-val">2.2〜3.5万</div></div></div>
-<div class="market-row"><div class="market-model">REVSTAR Pro</div><div class="market-price-col"><div class="market-price-val">12〜16万</div></div><div class="market-price-col"><div class="market-price-val">7.5〜10万</div></div></div>
-</div>
-
-</div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">2.2〜3.5万</div></div></div></div>
-<div class="market-card"><div class="market-card-name">REVSTAR Pro</div><div class="market-card-prices"><div class="market-card-price"><div class="market-card-price-label">美品</div><div class="market-card-price-value">12〜16万</div></div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">7.5〜10万</div></div></div></div>
-</div></div>
 
 <p style="font-size:0.65rem;color:var(--color-text-lighter);margin-top:1rem;max-width:52rem;margin-left:auto;margin-right:auto">※一般的な中古市場における参考価格です。ネック状態・フレット残り・電装系の動作・純正ケースの有無等で大きく変動します。正確な金額は無料査定でご確認ください。</p>
 </div>
