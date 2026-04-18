@@ -336,18 +336,17 @@ ul, ol { list-style: none; }
 }
 @media (min-width: 768px) { .header { top: 2rem; } }
 .header-inner {
-  max-width: 72rem; margin: 0 auto; padding: 0 1rem;
-  height: 72px; display: flex; align-items: center; justify-content: space-between;
+  max-width: 72rem; margin: 0 auto; padding: 0 0.75rem;
+  height: 56px; display: flex; align-items: center; justify-content: space-between;
 }
 @media (min-width: 768px) { .header-inner { padding: 0 1.25rem; height: 92px; } }
-.header-logo { display: flex; align-items: center; gap: 0.75rem; }
-.header-logo img { width: 58px; height: 58px; transition: transform 0.15s; }
-.header-logo:hover img { transform: scale(1.05); }
-@media (min-width: 768px) { .header-logo img { width: 72px; height: 72px; } }
+.header-logo { display: flex; align-items: center; gap: 0.5rem; }
+.header-logo img { width: 36px; height: 36px; }
+@media (min-width: 768px) { .header-logo img { width: 56px; height: 56px; } }
 .header-logo-text { display: flex; flex-direction: column; }
-.header-logo-name { color: #fff; font-weight: 900; font-size: 1.25rem; line-height: 1.2; letter-spacing: -0.025em; }
+.header-logo-name { color: #fff; font-weight: 900; font-size: 1.1rem; line-height: 1.2; letter-spacing: -0.025em; }
 @media (min-width: 768px) { .header-logo-name { font-size: 1.5rem; } }
-.header-logo-sub { color: rgba(255,255,255,0.6); font-size: 9px; font-weight: 700; line-height: 1.2; white-space: nowrap; }
+.header-logo-sub { color: rgba(255,255,255,0.6); font-size: 0.55rem; font-weight: 700; line-height: 1.2; white-space: nowrap; }
 @media (min-width: 768px) { .header-logo-sub { font-size: 0.75rem; } }
 .header-nav { display: none; align-items: center; gap: 0.25rem; }
 @media (min-width: 768px) { .header-nav { display: flex; } }
@@ -1198,35 +1197,35 @@ body { padding-bottom: 68px; }
       <p class="sub">以下のような楽器はもちろん、記載のないものもお気軽にご相談ください。</p>
     </div>
     <div class="categories">
-      <div class="category-card reveal">
+      <div class="category-card">
         <img src="images/cat-electric-guitar.webp" alt="エレキギター" loading="lazy">
         <div class="category-card-body"><h3>エレキギター</h3></div>
       </div>
-      <div class="category-card reveal">
+      <div class="category-card">
         <img src="images/cat-acoustic-guitar.webp" alt="アコースティックギター" loading="lazy">
         <div class="category-card-body"><h3>アコースティックギター</h3></div>
       </div>
-      <div class="category-card reveal">
+      <div class="category-card">
         <img src="images/cat-bass.webp" alt="ベース" loading="lazy">
         <div class="category-card-body"><h3>ベース</h3></div>
       </div>
-      <div class="category-card reveal">
+      <div class="category-card">
         <img src="images/cat-keyboard.webp" alt="キーボード・ピアノ" loading="lazy">
         <div class="category-card-body"><h3>キーボード・ピアノ</h3></div>
       </div>
-      <div class="category-card reveal">
+      <div class="category-card">
         <img src="images/cat-wind.webp" alt="管楽器" loading="lazy">
         <div class="category-card-body"><h3>管楽器</h3></div>
       </div>
-      <div class="category-card reveal">
+      <div class="category-card">
         <img src="images/cat-strings.webp" alt="弦楽器" loading="lazy">
         <div class="category-card-body"><h3>弦楽器</h3></div>
       </div>
-      <div class="category-card reveal">
+      <div class="category-card">
         <img src="images/cat-drums.webp" alt="打楽器・ドラム" loading="lazy">
         <div class="category-card-body"><h3>打楽器・ドラム</h3></div>
       </div>
-      <div class="category-card reveal">
+      <div class="category-card">
         <img src="images/cat-amp.webp" alt="アンプ・エフェクター" loading="lazy">
         <div class="category-card-body"><h3>アンプ・エフェクター</h3></div>
       </div>
@@ -1268,7 +1267,7 @@ body { padding-bottom: 68px; }
       <p class="sub">楽器の買取相場はメーカー・モデル・状態により変動します。最新の市場相場を反映した査定額をご提示。</p>
     </div>
     <div class="price-grid">
-      <div class="price-card reveal">
+      <div class="price-card">
         <img class="price-card-img" src="images/price-lespaul.webp" alt="Gibson Les Paul Standard" loading="lazy">
         <div class="price-card-body">
           <div class="price-card-category">エレキギター</div>
@@ -1276,7 +1275,7 @@ body { padding-bottom: 68px; }
           <div class="price-card-price">&yen;203,500</div>
         </div>
       </div>
-      <div class="price-card reveal">
+      <div class="price-card">
         <img class="price-card-img" src="images/price-strat.webp" alt="Fender Stratocaster" loading="lazy">
         <div class="price-card-body">
           <div class="price-card-category">エレキギター</div>
@@ -1284,7 +1283,7 @@ body { padding-bottom: 68px; }
           <div class="price-card-price">&yen;132,000</div>
         </div>
       </div>
-      <div class="price-card reveal">
+      <div class="price-card">
         <img class="price-card-img" src="images/price-prs.webp" alt="PRS McCarty" loading="lazy">
         <div class="price-card-body">
           <div class="price-card-category">エレキギター</div>
@@ -1292,7 +1291,7 @@ body { padding-bottom: 68px; }
           <div class="price-card-price">&yen;207,900</div>
         </div>
       </div>
-      <div class="price-card reveal">
+      <div class="price-card">
         <img class="price-card-img" src="images/price-martin.webp" alt="Martin D-28" loading="lazy">
         <div class="price-card-body">
           <div class="price-card-category">アコースティック</div>
@@ -1300,7 +1299,7 @@ body { padding-bottom: 68px; }
           <div class="price-card-price">&yen;180,000</div>
         </div>
       </div>
-      <div class="price-card reveal">
+      <div class="price-card">
         <img class="price-card-img" src="images/price-jazzbass.webp" alt="Fender Jazz Bass" loading="lazy">
         <div class="price-card-body">
           <div class="price-card-category">ベース</div>
@@ -1308,7 +1307,7 @@ body { padding-bottom: 68px; }
           <div class="price-card-price">&yen;120,000</div>
         </div>
       </div>
-      <div class="price-card reveal">
+      <div class="price-card">
         <img class="price-card-img" src="images/price-saxophone.webp" alt="Selmer SA80" loading="lazy">
         <div class="price-card-body">
           <div class="price-card-category">サックス</div>
@@ -1316,7 +1315,7 @@ body { padding-bottom: 68px; }
           <div class="price-card-price">&yen;264,000</div>
         </div>
       </div>
-      <div class="price-card reveal">
+      <div class="price-card">
         <img class="price-card-img" src="images/price-flute.webp" alt="ミヤザワフルート" loading="lazy">
         <div class="price-card-body">
           <div class="price-card-category">フルート</div>
@@ -1324,7 +1323,7 @@ body { padding-bottom: 68px; }
           <div class="price-card-price">&yen;319,000</div>
         </div>
       </div>
-      <div class="price-card reveal">
+      <div class="price-card">
         <img class="price-card-img" src="images/price-clarinet.webp" alt="YAMAHA クラリネット" loading="lazy">
         <div class="price-card-body">
           <div class="price-card-category">クラリネット</div>
@@ -1332,7 +1331,7 @@ body { padding-bottom: 68px; }
           <div class="price-card-price">&yen;110,440</div>
         </div>
       </div>
-      <div class="price-card reveal">
+      <div class="price-card">
         <img class="price-card-img" src="images/price-piano.webp" alt="YAMAHA 電子ピアノ" loading="lazy">
         <div class="price-card-body">
           <div class="price-card-category">電子ピアノ</div>
@@ -1340,7 +1339,7 @@ body { padding-bottom: 68px; }
           <div class="price-card-price">&yen;95,000</div>
         </div>
       </div>
-      <div class="price-card reveal">
+      <div class="price-card">
         <img class="price-card-img" src="images/price-marshall.webp" alt="Marshall JCM800" loading="lazy">
         <div class="price-card-body">
           <div class="price-card-category">アンプ</div>
@@ -1360,35 +1359,35 @@ body { padding-bottom: 68px; }
       <h2><span class="text-gradient">高額買取</span>できる5つの理由</h2>
     </div>
     <div class="reasons">
-      <div class="reason-card reveal">
+      <div class="reason-card">
         <div class="reason-num">1</div>
         <div>
           <h3>楽器専門の鑑定スタッフ</h3>
           <p>楽器の知識を持つ専門スタッフが、メーカー・年式・コンディションを正確に査定。ヴィンテージ品の価値も見逃しません。</p>
         </div>
       </div>
-      <div class="reason-card reveal">
+      <div class="reason-card">
         <div class="reason-num">2</div>
         <div>
           <h3>徹底した市場調査</h3>
           <p>国内外の相場データを常にリサーチ。最新の市場価格を反映した、適正で高額な査定額をご提示します。</p>
         </div>
       </div>
-      <div class="reason-card reveal">
+      <div class="reason-card">
         <div class="reason-num">3</div>
         <div>
           <h3>豊富な販売ネットワーク</h3>
           <p>国内外に広がる多彩な販売チャネルがあるため、買い取った楽器を最も高値で売却できるルートを選定できます。</p>
         </div>
       </div>
-      <div class="reason-card reveal">
+      <div class="reason-card">
         <div class="reason-num">4</div>
         <div>
           <h3>中間コストの徹底削減</h3>
           <p>自社での査定・物流を行うことで、無駄な中間マージンを排除。その分をお客様の買取価格に上乗せします。</p>
         </div>
       </div>
-      <div class="reason-card reveal">
+      <div class="reason-card">
         <div class="reason-num">5</div>
         <div>
           <h3>壊れた楽器も買取OK</h3>
