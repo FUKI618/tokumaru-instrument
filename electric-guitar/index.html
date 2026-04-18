@@ -137,16 +137,18 @@ ul,ol{list-style:none}
 .brands-others span::after{content:'・';color:var(--color-border);margin-left:0.5rem}
 .brands-others span:last-child::after{content:''}
 /* Market Price Table */
-.market-brand{max-width:52rem;margin:0 auto 2rem}
-.market-brand-title{font-weight:900;font-size:1rem;margin-bottom:0.75rem;color:var(--color-text);padding-left:0.75rem;border-left:4px solid var(--color-terra)}
-.market-cards{display:grid;grid-template-columns:1fr;gap:0.625rem}
-@media(min-width:768px){.market-cards{grid-template-columns:repeat(3,1fr);gap:1rem}}
-.market-card{background:#fff;border:1px solid var(--color-border);border-radius:1rem;padding:1rem;display:flex;flex-direction:column;gap:0.25rem}
-.market-card-name{font-weight:700;font-size:0.85rem;color:var(--color-text)}
-.market-card-prices{display:flex;gap:0.75rem;margin-top:0.25rem}
-.market-card-price{flex:1}
-.market-card-price-label{font-size:0.6rem;color:var(--color-text-lighter);font-weight:700}
-.market-card-price-value{font-size:0.8rem;font-weight:900;color:var(--color-terra)}
+.market-brand{max-width:52rem;margin:0 auto 1.5rem}
+.market-brand-title{font-weight:900;font-size:1rem;margin-bottom:0.625rem;color:#fff;padding:0.5rem 1rem;background:var(--color-dark);border-radius:0.5rem;display:inline-block}
+.market-cards{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem}
+@media(min-width:768px){.market-cards{grid-template-columns:repeat(3,1fr);gap:0.75rem}}
+.market-card{background:#fff;border:1px solid var(--color-border);border-radius:0.75rem;padding:0.75rem;position:relative;overflow:hidden}
+.market-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--color-terra)}
+.market-card-name{font-weight:900;font-size:0.75rem;color:var(--color-text);margin-bottom:0.375rem;padding-left:0.375rem}
+.market-card-prices{display:flex;gap:0.5rem}
+.market-card-price{flex:1;background:var(--color-bg-gray);border-radius:0.375rem;padding:0.375rem;text-align:center}
+.market-card-price-label{font-size:0.5rem;color:var(--color-text-lighter);font-weight:700;margin-bottom:0.125rem}
+.market-card-price-value{font-size:0.7rem;font-weight:900;color:var(--color-terra)}
+@media(min-width:768px){.market-card-name{font-size:0.85rem}.market-card-price-value{font-size:0.8rem}}
 /* Tips */
 .tips-list{max-width:48rem;margin:0 auto}
 .tip-item{margin-bottom:2rem}
@@ -256,7 +258,7 @@ ul,ol{list-style:none}
 <div class="hero-badge"><span style="width:8px;height:8px;border-radius:50%;background:var(--color-terra)"></span>エレキギター買取 強化中</div>
 <div class="hero-boost">買取価格 <strong>30</strong><span>%</span>UP</div>
 <h1>名古屋の<span class="accent">エレキギター買取</span>なら<br>徳丸商会</h1>
-<p class="hero-sub">ストラトキャスター・レスポール・テレキャスター・PRS・Ibanezまで。<br>専門スタッフがご自宅へ伺い、その場で現金お支払い。</p>
+<p class="hero-sub">ストラト・レスポール・PRS等を専門査定。出張費0円・即日現金。</p>
 </div>
 <div class="hero-middle"></div>
 <div class="hero-bottom">
@@ -344,17 +346,17 @@ ul,ol{list-style:none}
 <div class="container">
 <div class="section-title"><span class="en">High Value</span><h2>高く売れやすい<span class="text-gradient">エレキギター</span>とは？</h2></div>
 <div style="max-width:52rem;margin:0 auto;display:flex;flex-direction:column;gap:1.5rem">
-<div style="display:flex;gap:1.5rem;align-items:flex-start;background:#fff;border:1px solid var(--color-border);border-radius:1.25rem;padding:1.5rem;flex-wrap:wrap">
-<img src="images/sec-brand.webp" alt="王道ブランド Gibson Fender" width="160" height="160" loading="lazy" style="width:80px;height:80px;object-fit:cover;border-radius:0.75rem;flex-shrink:0">
-<div style="flex:1;min-width:220px"><h3 style="font-size:1.05rem;font-weight:900;margin-bottom:0.5rem;border-left:4px solid var(--color-terra);padding-left:0.75rem">フェンダーやギブソンなどの王道ブランド</h3><p style="font-size:0.875rem;color:var(--color-text-light);line-height:1.8">世界的な定番ブランドは中古市場での需要が圧倒的に高く、安定した高価買取が期待できます。特に「Made in USA」のモデルや、カスタムショップ製の個体は資産価値としても非常に高く評価されます。</p></div>
+<div style="display:flex;gap:1rem;align-items:flex-start;background:#fff;border:1px solid var(--color-border);border-radius:1rem;padding:1rem">
+<img src="images/sec-brand.webp" alt="王道ブランド Gibson Fender" width="160" height="160" loading="lazy" style="width:72px;height:72px;object-fit:cover;border-radius:0.75rem;flex-shrink:0">
+<div style="flex:1;min-width:220px"><h3 style="font-size:0.95rem;font-weight:900;margin-bottom:0.375rem;border-left:3px solid var(--color-terra);padding-left:0.625rem">フェンダーやギブソンなどの王道ブランド</h3><p style="font-size:0.8rem;color:var(--color-text-light);line-height:1.7">世界的な定番ブランドは中古市場での需要が圧倒的に高く、安定した高価買取が期待できます。特に「Made in USA」のモデルや、カスタムショップ製の個体は資産価値としても非常に高く評価されます。</p></div>
 </div>
-<div style="display:flex;gap:1.5rem;align-items:flex-start;background:#fff;border:1px solid var(--color-border);border-radius:1.25rem;padding:1.5rem;flex-wrap:wrap">
-<img src="images/sec-original.webp" alt="フルオリジナルパーツ" width="160" height="160" loading="lazy" style="width:80px;height:80px;object-fit:cover;border-radius:0.75rem;flex-shrink:0">
-<div style="flex:1;min-width:220px"><h3 style="font-size:1.05rem;font-weight:900;margin-bottom:0.5rem;border-left:4px solid var(--color-terra);padding-left:0.75rem">「フルオリジナル」のコンディション</h3><p style="font-size:0.875rem;color:var(--color-text-light);line-height:1.8">製造から数十年が経過したヴィンテージギターにおいて、ピックアップやペグ、ポット、そしてネジ1本に至るまで、交換・改造せず当時のままの状態（フルオリジナル）であることは大きな強みです。希少性が高く、高値で取引されています。</p></div>
+<div style="display:flex;gap:1rem;align-items:flex-start;background:#fff;border:1px solid var(--color-border);border-radius:1rem;padding:1rem">
+<img src="images/sec-original.webp" alt="フルオリジナルパーツ" width="160" height="160" loading="lazy" style="width:72px;height:72px;object-fit:cover;border-radius:0.75rem;flex-shrink:0">
+<div style="flex:1;min-width:220px"><h3 style="font-size:0.95rem;font-weight:900;margin-bottom:0.375rem;border-left:3px solid var(--color-terra);padding-left:0.625rem">「フルオリジナル」のコンディション</h3><p style="font-size:0.8rem;color:var(--color-text-light);line-height:1.7">製造から数十年が経過したヴィンテージギターにおいて、ピックアップやペグ、ポット、そしてネジ1本に至るまで、交換・改造せず当時のままの状態（フルオリジナル）であることは大きな強みです。希少性が高く、高値で取引されています。</p></div>
 </div>
-<div style="display:flex;gap:1.5rem;align-items:flex-start;background:#fff;border:1px solid var(--color-border);border-radius:1.25rem;padding:1.5rem;flex-wrap:wrap">
-<img src="images/sec-neck.webp" alt="ネック状態良好" width="160" height="160" loading="lazy" style="width:80px;height:80px;object-fit:cover;border-radius:0.75rem;flex-shrink:0">
-<div style="flex:1;min-width:220px"><h3 style="font-size:1.05rem;font-weight:900;margin-bottom:0.5rem;border-left:4px solid var(--color-terra);padding-left:0.75rem">ネックや電装系の状態が良好なもの</h3><p style="font-size:0.875rem;color:var(--color-text-light);line-height:1.8">ギターは「生もの」と言われるほど木材の状態が重要です。ネックに反りがなく、アンプに繋いだ際に「ガリ」と呼ばれるノイズが出ないものは、即戦力として高く評価されます。</p></div>
+<div style="display:flex;gap:1rem;align-items:flex-start;background:#fff;border:1px solid var(--color-border);border-radius:1rem;padding:1rem">
+<img src="images/sec-neck.webp" alt="ネック状態良好" width="160" height="160" loading="lazy" style="width:72px;height:72px;object-fit:cover;border-radius:0.75rem;flex-shrink:0">
+<div style="flex:1;min-width:220px"><h3 style="font-size:0.95rem;font-weight:900;margin-bottom:0.375rem;border-left:3px solid var(--color-terra);padding-left:0.625rem">ネックや電装系の状態が良好なもの</h3><p style="font-size:0.8rem;color:var(--color-text-light);line-height:1.7">ギターは「生もの」と言われるほど木材の状態が重要です。ネックに反りがなく、アンプに繋いだ際に「ガリ」と呼ばれるノイズが出ないものは、即戦力として高く評価されます。</p></div>
 </div>
 </div>
 </div>
@@ -378,17 +380,17 @@ ul,ol{list-style:none}
 <div class="container">
 <div class="section-title"><span class="en">Selling Tips</span><h2>エレキギターを<span class="text-gradient">高く売るコツ</span></h2><p class="sub">保管状態や少しのメンテナンスで査定額に大きな差が出る楽器です。大切にされてきた相棒を、次のオーナー様へ最高の状態でお繋ぎするための3つの秘訣をご紹介します。</p></div>
 <div style="max-width:52rem;margin:0 auto;display:flex;flex-direction:column;gap:1.5rem">
-<div style="display:flex;gap:1.5rem;align-items:flex-start;background:#fff;border:1px solid var(--color-border);border-radius:1.25rem;padding:1.5rem;flex-wrap:wrap">
-<img src="images/sec-clean.webp" alt="ギタークリーニング" width="160" height="160" loading="lazy" style="width:80px;height:80px;object-fit:cover;border-radius:0.75rem;flex-shrink:0">
-<div style="flex:1;min-width:220px"><div style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;font-weight:900;font-size:1rem;color:#fff;background:linear-gradient(135deg,var(--color-terra),var(--color-amber));border-radius:0.5rem;margin-bottom:0.5rem">01</div><h3 style="font-size:1.05rem;font-weight:900;margin-bottom:0.5rem">査定前のお手入れで第一印象アップ</h3><p style="font-size:0.875rem;color:var(--color-text-light);line-height:1.8">ボディの指紋やホコリ、金属パーツのくすみなどは、専用のクロスで拭き取るだけで印象がガラリと変わります。ヘッドの裏やブリッジ周りが綺麗だと、大切に扱われてきた証として高評価に直結します。</p></div>
+<div style="display:flex;gap:1rem;align-items:flex-start;background:#fff;border:1px solid var(--color-border);border-radius:1rem;padding:1rem">
+<img src="images/sec-clean.webp" alt="ギタークリーニング" width="160" height="160" loading="lazy" style="width:72px;height:72px;object-fit:cover;border-radius:0.75rem;flex-shrink:0">
+<div style="flex:1;min-width:220px"><div style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;font-weight:900;font-size:0.8rem;color:#fff;background:linear-gradient(135deg,var(--color-terra),var(--color-amber));border-radius:0.375rem;margin-bottom:0.375rem">01</div><h3 style="font-size:0.95rem;font-weight:900;margin-bottom:0.375rem">査定前のお手入れで第一印象アップ</h3><p style="font-size:0.8rem;color:var(--color-text-light);line-height:1.7">ボディの指紋やホコリ、金属パーツのくすみなどは、専用のクロスで拭き取るだけで印象がガラリと変わります。ヘッドの裏やブリッジ周りが綺麗だと、大切に扱われてきた証として高評価に直結します。</p></div>
 </div>
-<div style="display:flex;gap:1.5rem;align-items:flex-start;background:#fff;border:1px solid var(--color-border);border-radius:1.25rem;padding:1.5rem;flex-wrap:wrap">
-<img src="images/sec-case.webp" alt="純正ギターケース" width="160" height="160" loading="lazy" style="width:80px;height:80px;object-fit:cover;border-radius:0.75rem;flex-shrink:0">
-<div style="flex:1;min-width:220px"><div style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;font-weight:900;font-size:1rem;color:#fff;background:linear-gradient(135deg,var(--color-terra),var(--color-amber));border-radius:0.5rem;margin-bottom:0.5rem">02</div><h3 style="font-size:1.05rem;font-weight:900;margin-bottom:0.5rem">「純正ケース」などの付属品を揃える</h3><p style="font-size:0.875rem;color:var(--color-text-light);line-height:1.8">ご購入時の付属品はすべてセットでお出しください。特にカスタムショップ製の「認定証」や、純正のケース、アームなどは査定額に大きく影響します。</p></div>
+<div style="display:flex;gap:1rem;align-items:flex-start;background:#fff;border:1px solid var(--color-border);border-radius:1rem;padding:1rem">
+<img src="images/sec-case.webp" alt="純正ギターケース" width="160" height="160" loading="lazy" style="width:72px;height:72px;object-fit:cover;border-radius:0.75rem;flex-shrink:0">
+<div style="flex:1;min-width:220px"><div style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;font-weight:900;font-size:0.8rem;color:#fff;background:linear-gradient(135deg,var(--color-terra),var(--color-amber));border-radius:0.375rem;margin-bottom:0.375rem">02</div><h3 style="font-size:0.95rem;font-weight:900;margin-bottom:0.375rem">「純正ケース」などの付属品を揃える</h3><p style="font-size:0.8rem;color:var(--color-text-light);line-height:1.7">ご購入時の付属品はすべてセットでお出しください。特にカスタムショップ製の「認定証」や、純正のケース、アームなどは査定額に大きく影響します。</p></div>
 </div>
-<div style="display:flex;gap:1.5rem;align-items:flex-start;background:#fff;border:1px solid var(--color-border);border-radius:1.25rem;padding:1.5rem;flex-wrap:wrap">
-<img src="images/sec-strings.webp" alt="新しい弦に張り替え" width="160" height="160" loading="lazy" style="width:80px;height:80px;object-fit:cover;border-radius:0.75rem;flex-shrink:0">
-<div style="flex:1;min-width:220px"><div style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;font-weight:900;font-size:1rem;color:#fff;background:linear-gradient(135deg,var(--color-terra),var(--color-amber));border-radius:0.5rem;margin-bottom:0.5rem">03</div><h3 style="font-size:1.05rem;font-weight:900;margin-bottom:0.5rem">新しい弦に張り替えておく</h3><p style="font-size:0.875rem;color:var(--color-text-light);line-height:1.8">錆びた弦のままでは本来のサウンドを確認しにくいため、フレッシュな状態であるほど「大切に手入れされていたギター」という印象を査定員に強く与えます。</p></div>
+<div style="display:flex;gap:1rem;align-items:flex-start;background:#fff;border:1px solid var(--color-border);border-radius:1rem;padding:1rem">
+<img src="images/sec-strings.webp" alt="新しい弦に張り替え" width="160" height="160" loading="lazy" style="width:72px;height:72px;object-fit:cover;border-radius:0.75rem;flex-shrink:0">
+<div style="flex:1;min-width:220px"><div style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;font-weight:900;font-size:0.8rem;color:#fff;background:linear-gradient(135deg,var(--color-terra),var(--color-amber));border-radius:0.375rem;margin-bottom:0.375rem">03</div><h3 style="font-size:0.95rem;font-weight:900;margin-bottom:0.375rem">新しい弦に張り替えておく</h3><p style="font-size:0.8rem;color:var(--color-text-light);line-height:1.7">錆びた弦のままでは本来のサウンドを確認しにくいため、フレッシュな状態であるほど「大切に手入れされていたギター」という印象を査定員に強く与えます。</p></div>
 </div>
 </div>
 </div>
@@ -397,7 +399,7 @@ ul,ol{list-style:none}
 <!-- 豆知識 -->
 <section class="section" id="knowledge">
 <div class="container">
-<div class="section-title"><span class="en">Knowledge</span><h2>エレキギターの<span class="text-gradient">豆知識</span></h2><p class="sub">音楽の歴史を塗り替え、今もなお多くの人々を魅了し続けるエレキギター。知っているようで知らないエレキギターの基本から、査定で重要視されるポイントまでをご紹介します。</p></div>
+<div class="section-title"><span class="en">Knowledge</span><h2>エレキギターの<span class="text-gradient">豆知識</span></h2><p class="sub">音楽の歴史を塗り替え、今もなお多くの人々を魅了し続けるエレキギター。ここでは、エレキギターの基本と、査定で重要視される3つのポイントをご紹介します。</p></div>
 <div style="max-width:48rem;margin:0 auto 2rem;border-radius:1.25rem;overflow:hidden;position:relative;height:200px">
 <img src="images/sec-knowledge.webp" alt="エレキギターの歴史" loading="lazy" style="width:100%;height:100%;object-fit:cover">
 <div style="position:absolute;inset:0;background:rgba(44,36,32,0.6);display:flex;align-items:center;justify-content:center">
@@ -406,6 +408,7 @@ ul,ol{list-style:none}
 </div>
 <div class="knowledge-block"><h3>エレキギターとは？</h3><p>弦の振動を「ピックアップ」というマイクのような装置で電気信号に変え、アンプを通して大きな音を出す楽器です。生音で楽しむアコースティックギターとは違い、エフェクターで音色を自由自在に操れるのが最大の特徴。ボディの形状や木材、電子パーツの組み合わせによって、無限のサウンドバリエーションを生み出すことができます。</p></div>
 <div class="knowledge-block"><h3>エレキギターの歴史</h3><p>1930年代、ジャズバンドの中でギターの音が他の楽器にかき消されないよう、音を増幅させたことが始まりです。1950年代にはフェンダー社の「ストラトキャスター」やギブソン社の「レスポール」といった、現代のスタンダードとなるモデルが登場しました。以来、ロックやポップスの中心的存在として、数多くの伝説的なギタリストと共に進化を続けてきました。</p></div>
+<div class="knowledge-block"><h3>査定で重要視される3つのポイント</h3><p><strong>1. ネックの状態</strong> — 反りやねじれがないか。トラスロッドの余裕があるかも確認されます。<br><strong>2. フレットの残り</strong> — 摩耗が少ないほど高評価。すり合わせ済みでも減点は少ないです。<br><strong>3. 電装系の動作</strong> — ピックアップの出力、ボリューム/トーンのガリの有無。ノイズなく動作することが重要です。</p></div>
 </div>
 </section>
 
