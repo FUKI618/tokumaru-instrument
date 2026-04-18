@@ -67,7 +67,7 @@ ul,ol{list-style:none}
 .btn-icon{width:14px;height:14px;flex-shrink:0}
 @media(min-width:768px){.btn-icon{width:20px;height:20px}}
 /* Hero */
-.hero{position:relative;overflow:hidden;background:#0a0806;min-height:100svh;display:flex;align-items:stretch}
+.hero{position:relative;overflow:hidden;background:#0a0806;height:100vh;height:100dvh;display:flex;align-items:stretch}
 @media(min-width:768px){.hero{min-height:88vh}}
 .hero-bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center}
 .hero-overlay{position:absolute;inset:0;z-index:2;background:rgba(10,8,6,0.45),linear-gradient(to bottom,rgba(10,8,6,0.3) 0%,transparent 25%,transparent 70%,rgba(10,8,6,0.5) 100%)}
@@ -137,18 +137,17 @@ ul,ol{list-style:none}
 .brands-others span::after{content:'・';color:var(--color-border);margin-left:0.5rem}
 .brands-others span:last-child::after{content:''}
 /* Market Price Table */
-.market-brand{max-width:52rem;margin:0 auto 1.5rem}
-.market-brand-title{font-weight:900;font-size:1rem;margin-bottom:0.625rem;color:#fff;padding:0.5rem 1rem;background:var(--color-dark);border-radius:0.5rem;display:inline-block}
-.market-cards{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem}
-@media(min-width:768px){.market-cards{grid-template-columns:repeat(3,1fr);gap:0.75rem}}
-.market-card{background:#fff;border:1px solid var(--color-border);border-radius:0.75rem;padding:0.75rem;position:relative;overflow:hidden}
-.market-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--color-terra)}
-.market-card-name{font-weight:900;font-size:0.75rem;color:var(--color-text);margin-bottom:0.375rem;padding-left:0.375rem}
-.market-card-prices{display:flex;gap:0.5rem}
-.market-card-price{flex:1;background:var(--color-bg-gray);border-radius:0.375rem;padding:0.375rem;text-align:center}
-.market-card-price-label{font-size:0.5rem;color:var(--color-text-lighter);font-weight:700;margin-bottom:0.125rem}
-.market-card-price-value{font-size:0.7rem;font-weight:900;color:var(--color-terra)}
-@media(min-width:768px){.market-card-name{font-size:0.85rem}.market-card-price-value{font-size:0.8rem}}
+.market-section{max-width:52rem;margin:0 auto}
+.market-group{margin-bottom:1.5rem;background:#fff;border:1px solid var(--color-border);border-radius:1rem;overflow:hidden}
+.market-group-header{background:var(--color-dark);color:#fff;padding:0.625rem 1rem;font-weight:900;font-size:0.9rem}
+.market-row{display:flex;align-items:center;padding:0.625rem 1rem;border-bottom:1px solid var(--color-border)}
+.market-row:last-child{border-bottom:none}
+.market-row:nth-child(even){background:var(--color-bg-gray)}
+.market-model{flex:2;font-weight:700;font-size:0.8rem;color:var(--color-text)}
+.market-price-col{flex:1;text-align:center}
+.market-price-label{font-size:0.55rem;color:var(--color-text-lighter);font-weight:700}
+.market-price-val{font-size:0.8rem;font-weight:900;color:var(--color-terra)}
+@media(max-width:767px){.market-model{font-size:0.7rem}.market-price-val{font-size:0.7rem}.market-row{padding:0.5rem 0.75rem}}
 /* Tips */
 .tips-list{max-width:48rem;margin:0 auto}
 .tip-item{margin-bottom:2rem}
@@ -296,32 +295,48 @@ ul,ol{list-style:none}
 <section class="section" id="market">
 <div class="container">
 <div class="section-title"><span class="en">Market Price</span><h2>エレキギターの<span class="text-gradient">買取相場</span></h2><p class="sub">ブランド・モデル・製造年代・楽器の状態によって大きく変動します。以下は主要ブランドの一般的な買取相場の目安です。</p></div>
-<div class="market-brand"><h3 class="market-brand-title">Fender（フェンダー）</h3><div class="market-cards">
-<div class="market-card"><div class="market-card-name">American Pro II Strat</div><div class="market-card-prices"><div class="market-card-price"><div class="market-card-price-label">美品</div><div class="market-card-price-value">13.5〜16.5万</div></div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">9.5〜12万</div></div></div></div>
-<div class="market-card"><div class="market-card-name">American Ultra</div><div class="market-card-prices"><div class="market-card-price"><div class="market-card-price-label">美品</div><div class="market-card-price-value">14〜18万</div></div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">10〜13.5万</div></div></div></div>
-<div class="market-card"><div class="market-card-name">MIJ Traditional</div><div class="market-card-prices"><div class="market-card-price"><div class="market-card-price-label">美品</div><div class="market-card-price-value">6〜8.5万</div></div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">4〜5.5万</div></div></div></div>
-</div></div>
+<div class="market-section">
 
-<div class="market-brand"><h3 class="market-brand-title">Gibson（ギブソン）</h3><div class="market-cards">
-<div class="market-card"><div class="market-card-name">Les Paul Standard</div><div class="market-card-prices"><div class="market-card-price"><div class="market-card-price-label">美品</div><div class="market-card-price-value">15〜20万</div></div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">11〜14万</div></div></div></div>
-<div class="market-card"><div class="market-card-name">Les Paul Custom</div><div class="market-card-prices"><div class="market-card-price"><div class="market-card-price-label">美品</div><div class="market-card-price-value">28〜40万</div></div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">22〜27万</div></div></div></div>
-<div class="market-card"><div class="market-card-name">SG Standard</div><div class="market-card-prices"><div class="market-card-price"><div class="market-card-price-label">美品</div><div class="market-card-price-value">8〜11万</div></div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">5.5〜7.5万</div></div></div></div>
-</div></div>
+<div class="market-group">
+<div class="market-group-header">Fender（フェンダー）</div>
+<div class="market-row" style="border-bottom:1px solid rgba(255,255,255,0.2);background:rgba(44,36,32,0.05)"><div class="market-model" style="color:var(--color-text-lighter);font-size:0.6rem">モデル</div><div class="market-price-col"><div class="market-price-label">美品</div></div><div class="market-price-col"><div class="market-price-label">中古</div></div></div>
+<div class="market-row"><div class="market-model">American Pro II Strat</div><div class="market-price-col"><div class="market-price-val">13.5〜16.5万</div></div><div class="market-price-col"><div class="market-price-val">9.5〜12万</div></div></div>
+<div class="market-row"><div class="market-model">American Ultra</div><div class="market-price-col"><div class="market-price-val">14〜18万</div></div><div class="market-price-col"><div class="market-price-val">10〜13.5万</div></div></div>
+<div class="market-row"><div class="market-model">MIJ Traditional</div><div class="market-price-col"><div class="market-price-val">6〜8.5万</div></div><div class="market-price-col"><div class="market-price-val">4〜5.5万</div></div></div>
+</div>
 
-<div class="market-brand"><h3 class="market-brand-title">Ibanez（アイバニーズ）</h3><div class="market-cards">
-<div class="market-card"><div class="market-card-name">RG Prestige</div><div class="market-card-prices"><div class="market-card-price"><div class="market-card-price-label">美品</div><div class="market-card-price-value">7〜11万</div></div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">4.5〜6.5万</div></div></div></div>
-<div class="market-card"><div class="market-card-name">j.custom</div><div class="market-card-prices"><div class="market-card-price"><div class="market-card-price-label">美品</div><div class="market-card-price-value">12〜18万</div></div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">8〜11万</div></div></div></div>
-<div class="market-card"><div class="market-card-name">AZ Prestige</div><div class="market-card-prices"><div class="market-card-price"><div class="market-card-price-label">美品</div><div class="market-card-price-value">10〜14万</div></div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">6.5〜8.5万</div></div></div></div>
-</div></div>
+<div class="market-group">
+<div class="market-group-header">Gibson（ギブソン）</div>
+<div class="market-row" style="border-bottom:1px solid rgba(255,255,255,0.2);background:rgba(44,36,32,0.05)"><div class="market-model" style="color:var(--color-text-lighter);font-size:0.6rem">モデル</div><div class="market-price-col"><div class="market-price-label">美品</div></div><div class="market-price-col"><div class="market-price-label">中古</div></div></div>
+<div class="market-row"><div class="market-model">Les Paul Standard</div><div class="market-price-col"><div class="market-price-val">15〜20万</div></div><div class="market-price-col"><div class="market-price-val">11〜14万</div></div></div>
+<div class="market-row"><div class="market-model">Les Paul Custom</div><div class="market-price-col"><div class="market-price-val">28〜40万</div></div><div class="market-price-col"><div class="market-price-val">22〜27万</div></div></div>
+<div class="market-row"><div class="market-model">SG Standard</div><div class="market-price-col"><div class="market-price-val">8〜11万</div></div><div class="market-price-col"><div class="market-price-val">5.5〜7.5万</div></div></div>
+</div>
 
-<div class="market-brand"><h3 class="market-brand-title">PRS</h3><div class="market-cards">
-<div class="market-card"><div class="market-card-name">Custom 24 Core</div><div class="market-card-prices"><div class="market-card-price"><div class="market-card-price-label">美品</div><div class="market-card-price-value">18〜25万</div></div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">13〜17万</div></div></div></div>
-<div class="market-card"><div class="market-card-name">Silver Sky Core</div><div class="market-card-prices"><div class="market-card-price"><div class="market-card-price-label">美品</div><div class="market-card-price-value">16〜22万</div></div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">11〜15万</div></div></div></div>
-<div class="market-card"><div class="market-card-name">SE Standard 24</div><div class="market-card-prices"><div class="market-card-price"><div class="market-card-price-label">美品</div><div class="market-card-price-value">2.5〜4万</div></div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">1.5〜2.5万</div></div></div></div>
-</div></div>
+<div class="market-group">
+<div class="market-group-header">Ibanez（アイバニーズ）</div>
+<div class="market-row" style="border-bottom:1px solid rgba(255,255,255,0.2);background:rgba(44,36,32,0.05)"><div class="market-model" style="color:var(--color-text-lighter);font-size:0.6rem">モデル</div><div class="market-price-col"><div class="market-price-label">美品</div></div><div class="market-price-col"><div class="market-price-label">中古</div></div></div>
+<div class="market-row"><div class="market-model">RG Prestige</div><div class="market-price-col"><div class="market-price-val">7〜11万</div></div><div class="market-price-col"><div class="market-price-val">4.5〜6.5万</div></div></div>
+<div class="market-row"><div class="market-model">j.custom</div><div class="market-price-col"><div class="market-price-val">12〜18万</div></div><div class="market-price-col"><div class="market-price-val">8〜11万</div></div></div>
+<div class="market-row"><div class="market-model">AZ Prestige</div><div class="market-price-col"><div class="market-price-val">10〜14万</div></div><div class="market-price-col"><div class="market-price-val">6.5〜8.5万</div></div></div>
+</div>
 
-<div class="market-brand"><h3 class="market-brand-title">YAMAHA（ヤマハ）</h3><div class="market-cards">
-<div class="market-card"><div class="market-card-name">PACIFICA 612</div><div class="market-card-prices"><div class="market-card-price"><div class="market-card-price-label">美品</div><div class="market-card-price-value">3.5〜5.5万</div></div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">2.2〜3.5万</div></div></div></div>
+<div class="market-group">
+<div class="market-group-header">PRS</div>
+<div class="market-row" style="border-bottom:1px solid rgba(255,255,255,0.2);background:rgba(44,36,32,0.05)"><div class="market-model" style="color:var(--color-text-lighter);font-size:0.6rem">モデル</div><div class="market-price-col"><div class="market-price-label">美品</div></div><div class="market-price-col"><div class="market-price-label">中古</div></div></div>
+<div class="market-row"><div class="market-model">Custom 24 Core</div><div class="market-price-col"><div class="market-price-val">18〜25万</div></div><div class="market-price-col"><div class="market-price-val">13〜17万</div></div></div>
+<div class="market-row"><div class="market-model">Silver Sky Core</div><div class="market-price-col"><div class="market-price-val">16〜22万</div></div><div class="market-price-col"><div class="market-price-val">11〜15万</div></div></div>
+<div class="market-row"><div class="market-model">SE Standard 24</div><div class="market-price-col"><div class="market-price-val">2.5〜4万</div></div><div class="market-price-col"><div class="market-price-val">1.5〜2.5万</div></div></div>
+</div>
+
+<div class="market-group">
+<div class="market-group-header">YAMAHA（ヤマハ）</div>
+<div class="market-row" style="border-bottom:1px solid rgba(255,255,255,0.2);background:rgba(44,36,32,0.05)"><div class="market-model" style="color:var(--color-text-lighter);font-size:0.6rem">モデル</div><div class="market-price-col"><div class="market-price-label">美品</div></div><div class="market-price-col"><div class="market-price-label">中古</div></div></div>
+<div class="market-row"><div class="market-model">PACIFICA 612</div><div class="market-price-col"><div class="market-price-val">3.5〜5.5万</div></div><div class="market-price-col"><div class="market-price-val">2.2〜3.5万</div></div></div>
+<div class="market-row"><div class="market-model">REVSTAR Pro</div><div class="market-price-col"><div class="market-price-val">12〜16万</div></div><div class="market-price-col"><div class="market-price-val">7.5〜10万</div></div></div>
+</div>
+
+</div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">2.2〜3.5万</div></div></div></div>
 <div class="market-card"><div class="market-card-name">REVSTAR Pro</div><div class="market-card-prices"><div class="market-card-price"><div class="market-card-price-label">美品</div><div class="market-card-price-value">12〜16万</div></div><div class="market-card-price"><div class="market-card-price-label">中古</div><div class="market-card-price-value">7.5〜10万</div></div></div></div>
 </div></div>
 
@@ -437,6 +452,32 @@ ul,ol{list-style:none}
 <div class="flow-step"><div class="flow-step-num">2</div><h3>ご自宅で査定</h3><p>専門スタッフがお伺いし、その場で丁寧に査定。アンプやエフェクターもまとめて査定可能です。</p></div>
 <div class="flow-step"><div class="flow-step-num">3</div><h3>その場で現金お支払い</h3><p>査定額にご納得いただければ、その場で現金をお渡しします。もちろんキャンセルも無料です。</p></div>
 </div></div>
+</section>
+
+
+<!-- お客様の声 -->
+<section class="section" id="voice">
+<div class="container">
+<div class="section-title"><span class="en">Voice</span><h2>お客様の<span class="text-gradient">声</span></h2></div>
+<div style="max-width:48rem;margin:0 auto;display:flex;flex-direction:column;gap:1rem">
+<div style="background:#fff;border:1px solid var(--color-border);border-radius:1rem;padding:1.25rem">
+<div style="display:flex;gap:0.25rem;margin-bottom:0.5rem"><span style="color:var(--color-amber)">★★★★★</span></div>
+<p style="font-size:0.85rem;color:var(--color-text);line-height:1.7;margin-bottom:0.5rem">30年以上弾いていたレスポールでしたが、想像以上の金額で驚きました。傷や塗装の剥がれがあったので不安でしたが、ヴィンテージとしてしっかり評価していただけました。査定員の方のギターへの知識が深く、安心してお任せできました。</p>
+<p style="font-size:0.7rem;color:var(--color-text-lighter)">名古屋市千種区 S.T様（60代）｜Gibson Les Paul Standard → ¥185,000</p>
+</div>
+<div style="background:#fff;border:1px solid var(--color-border);border-radius:1rem;padding:1.25rem">
+<div style="display:flex;gap:0.25rem;margin-bottom:0.5rem"><span style="color:var(--color-amber)">★★★★★</span></div>
+<p style="font-size:0.85rem;color:var(--color-text);line-height:1.7;margin-bottom:0.5rem">買い替え資金のためにストラトを売りました。他社では10万円台と言われましたが、徳丸商会さんでは13万円以上の査定。出張で来てもらえたので重いアンプも一緒に引き取ってもらえて助かりました。</p>
+<p style="font-size:0.7rem;color:var(--color-text-lighter)">名古屋市緑区 T.N様（40代）｜Fender American Professional II Strat → ¥132,000</p>
+</div>
+<div style="background:#fff;border:1px solid var(--color-border);border-radius:1rem;padding:1.25rem">
+<div style="display:flex;gap:0.25rem;margin-bottom:0.5rem"><span style="color:var(--color-amber)">★★★★★</span></div>
+<p style="font-size:0.85rem;color:var(--color-text);line-height:1.7;margin-bottom:0.5rem">父の遺品のギターを査定していただきました。YAMAHAのSGという古いモデルでしたが、日本製の名機として高く評価してくださいました。丁寧な対応で遺品整理も安心してお願いできました。</p>
+<p style="font-size:0.7rem;color:var(--color-text-lighter)">名古屋市昭和区 H.S様（50代）｜YAMAHA SG1820 → ¥137,500</p>
+</div>
+</div>
+<p style="text-align:center;color:var(--color-text-lighter);font-size:0.75rem;margin-top:1rem">お客様満足度 <strong style="color:var(--color-terra)">98%</strong>（自社調べ）</p>
+</div>
 </section>
 
 <!-- FAQ -->
