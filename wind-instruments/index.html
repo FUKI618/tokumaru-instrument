@@ -27,7 +27,8 @@
 <meta name="twitter:description" content="管楽器買取なら名古屋の徳丸商会。フルート・サックス・クラリネット・トランペット・ホルンをYAMAHA・Selmer・Muramatsu・Buffet・Bach専門スタッフが出張査定。買取価格30%UP強化中。出張費・査定料0円、その場で現金お支払い。年中無休。052-990-3968">
 <meta name="twitter:image" content="https://fuki618.github.io/tokumaru-instrument/images/og-image.webp">
 <meta name="twitter:image:alt" content="徳丸商会の管楽器買取">
-<link rel="preload" as="image" href="images/hero.webp" type="image/webp">
+<link rel="preload" as="image" href="images/hero-mobile.webp" type="image/webp" media="(max-width:767px)">
+<link rel="preload" as="image" href="images/hero.webp" type="image/webp" media="(min-width:768px)">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -246,7 +247,6 @@ ul,ol{list-style:none}
 /* Mobile overrides */
 @media(max-width:767px){
   .hero{align-items:stretch}
-  .hero-bg-img{object-fit:contain;object-position:center 40%}
   .hero-content{padding-top:72px;padding-bottom:3.5rem}
   .hero-middle{display:none}
   .hero-top h1{display:block;margin-top:0.375rem;text-shadow:0 2px 4px rgba(0,0,0,0.7);background:rgba(10,8,6,0.45);padding:0.5rem 0.75rem;border-radius:0.5rem}
@@ -290,7 +290,7 @@ ul,ol{list-style:none}
 
 <!-- Hero -->
 <section class="hero" id="top">
-<img class="hero-bg-img" src="images/hero.webp" alt="管楽器買取 名古屋 徳丸商会" loading="eager" fetchpriority="high" width="1600" height="900">
+<picture><source media="(max-width:767px)" srcset="images/hero-mobile.webp" width="768" height="1408"><img class="hero-bg-img" src="images/hero.webp" alt="管楽器買取 名古屋 徳丸商会" loading="eager" fetchpriority="high" width="1600" height="900"></picture>
 <div class="hero-overlay"></div>
 <div class="hero-content container">
 <div class="hero-top">
